@@ -52,7 +52,7 @@ into document metadata containing Open graph, Twitter card and generic `<meta>` 
 [Open Graph Reference](https://ogp.me/):
 
 | name | param | example | content |
-| ----- | ----- | ----- | ----- |
+| ------ | ------ | ------ | ------ |
 | [og:title] | `title` | "Eleventy Meta tag Plugin"  | The title of your object as it should appear in the graph. |
 | [og:type] | not required | "website" | The type of your object, default option is website. |
 | [og:description] | `desc` | "An eleventy shortcode for generating meta tags" | A one or two sentence description of your object. |
@@ -72,7 +72,7 @@ into document metadata containing Open graph, Twitter card and generic `<meta>` 
 | [twitter:img:alt] | `img_alt` | "An Archimedean Spiral" | A text description of the image conveying the essential nature of an image to users who are visually impaired. |
 
 ## TODO
-- [ ] Use Open Graph API with `eleventy-cache-assets` to cache the `url` request and make sure output is correct for `og:stuff` tags.
+- [ ] Use Open Graph API with `eleventy-cache-assets` to cache the `url` request and make sure output is correct for meta tags.
 - [ ] Maybe add a few more meta tags that are commonly used and not included in the shortcode output
 
 ## Maintainers
