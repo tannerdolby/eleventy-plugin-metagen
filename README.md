@@ -21,8 +21,6 @@ module.exports = (eleventyConfig) => {
 Use the shortcode `metagen` in a template file:
 
 ```html
-<!DOCTYPE html>
-<html lang="en">
 <head>
     {% metagen 
         title="Eleventy Plugin Add Meta Tags",
@@ -34,11 +32,6 @@ Use the shortcode `metagen` in a template file:
         name="Tanner Dolby"
     %}
 </head>
-<body>
-    <h1>Eleventy-Meta-Generator</h1>
-    <a href="https://github.com/tannerdolby/eleventy-meta-generator">View the project on Github</a>
-</body>
-</html>
 ```
 
 Which outputs the Open Graph, Twitter card and generic `<meta>` tags:
@@ -46,24 +39,24 @@ Which outputs the Open Graph, Twitter card and generic `<meta>` tags:
 ```html
 <head>
     <meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Eleventy Plugin Add Meta Tags</title>
-	<meta name="author" content="Tanner Dolby">
-	<meta name="description" content="A page about the eleventy-plugin-add-meta-tags">
-	<meta name="og:url" content="https://tannerdolby.com">
-	<meta name="og:type" content="website">
-	<meta name="og:title" content="Eleventy Plugin Add Meta Tags">
-	<meta name="og:description" content="A page about the eleventy-plugin-add-meta-tags">
-	<meta name="og:img" content="https://tannerdolby.com/path-to-img.jpg">
-	<meta name="og:img:alt" content="Descriptive text for image">
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:site" content="@tannerdolby">
-	<meta name="twitter:url" content="https://tannerdolby.com">
-	<meta name="twitter:title" content="Eleventy Plugin Add Meta Tags">
-	<meta name="twitter:description" content="A page about the eleventy-plugin-add-meta-tags">
-	<meta name="twitter:image" content="https://tannerdolby.com/path-to-img.jpg">
-	<meta name="twitter:image:alt" content="Descriptive text for image">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Eleventy Plugin Add Meta Tags</title>
+    <meta name="author" content="Tanner Dolby">
+    <meta name="description" content="A page about the eleventy-plugin-add-meta-tags">
+    <meta name="og:url" content="https://tannerdolby.com">
+    <meta name="og:type" content="website">
+    <meta name="og:title" content="Eleventy Plugin Add Meta Tags">
+    <meta name="og:description" content="A page about the eleventy-plugin-add-meta-tags">
+    <meta name="og:img" content="https://tannerdolby.com/path-to-img.jpg">
+    <meta name="og:img:alt" content="Descriptive text for image">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@tannerdolby">
+    <meta name="twitter:url" content="https://tannerdolby.com">
+    <meta name="twitter:title" content="Eleventy Plugin Add Meta Tags">
+    <meta name="twitter:description" content="A page about the eleventy-plugin-add-meta-tags">
+    <meta name="twitter:image" content="https://tannerdolby.com/path-to-img.jpg">
+    <meta name="twitter:image:alt" content="Descriptive text for image">
 </head>
 ```
 
