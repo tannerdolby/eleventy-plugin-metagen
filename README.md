@@ -1,5 +1,5 @@
-# eleventy-meta-generator
-A plugin that generates Open Graph and Twitter Card `<meta>` tags within the `<head>` of the document.
+# eleventy-plugin-add-metatags
+A [plugin](https://www.11ty.dev/docs/plugins/) that allows you to generate Open Graph, Twitter Card, and generic meta tags within the `<head>` of any HTML document.
 
 ## Installation
 `npm install eleventy-meta-generator` to make the shortcode `metagen` available in your project.
