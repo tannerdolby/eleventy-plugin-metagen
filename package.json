@@ -16,7 +16,12 @@
     "start": "eleventy --serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["eleventy", "11ty", "meta-tags", "meta-generator"],
+  "keywords": [
+    "eleventy",
+    "11ty",
+    "meta-tags",
+    "meta-generator"
+  ],
   "author": {
     "name": "Tanner Dolby",
     "email": "dolb.tanner@gmail.com",
@@ -24,7 +29,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@11ty/eleventy": "^0.11.1",
-    "@11ty/eleventy-cache-assets": "^2.0.3"
+    "@11ty/eleventy": "^0.11.1"
   }
 }
