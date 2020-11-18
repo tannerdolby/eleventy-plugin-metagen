@@ -1,0 +1,5 @@
+# Eleventy Site Output
+_site
+
+# node modules
+node_modules
