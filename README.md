@@ -5,7 +5,7 @@ An Eleventy Plugin that generates Open Graph and Twitter Card meta tags within t
 `npm install eleventy-meta-generator` to make the shortcode `metagen` available in your project.
 
 ## Configuration
-Add the plugin to your Eleventy Config File: (usually `.eleventy.js`)
+Add the plugin to your Eleventy Config File (usually `.eleventy.js`)
 
 ```js
 const metagen = require(''); // require the npm plugin
@@ -17,12 +17,11 @@ module.exports = (eleventyConfig) => {
 ```
 
 ## Usage
-Use the shortcode in a template file:
+Use the shortcode `metagen` in a template file:
 
-{% raw %}
 ```html
 <head>
-    {% metaGenerate
+    {% metagen
         title="Some Title",
         desc="A brief description of the page",
         img="/path-to-img.jpg",
@@ -32,17 +31,11 @@ Use the shortcode in a template file:
     %}
 </head>
 ```
-{% endraw %}
 
-Which outputs:
+Which outputs the Open Graph and Twitter card `<meta>` tags into the document's `<head>`:
 
-{% raw %}
 ```html
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
     <!-- Open Graph Metadata -->
     <meta name="og:url" content="https://tannerdolby.com">
     <meta name="og:type" content="website">
@@ -60,13 +53,12 @@ Which outputs:
     <meta name="twitter:image:alt" content="My website logo">
 </head>
 ```
-{% raw %}
 
 ## Open Graph and Twitter Card meta tag options and info
 Todo
 
-# Maintainers
+## Maintainers
 @tannerdolby
 
-# License
+## License
 MIT
