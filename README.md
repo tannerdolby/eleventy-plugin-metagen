@@ -1,11 +1,11 @@
 # eleventy-meta-generator
-An Eleventy Plugin that generates Open Graph and Twitter Card meta tags within the `<head>` of the document. How search engines and social medias display your website is through open graph and twitter card meta tags.
+A plugin that generates Open Graph and Twitter Card `<meta>` tags within the `<head>` of the document.
 
 ## Installation
 `npm install eleventy-meta-generator` to make the shortcode `metagen` available in your project.
 
 ## Configuration
-Add the plugin to your Eleventy Config File (usually `.eleventy.js`)
+Add the plugin to your Eleventy Config File:
 
 ```js
 const metagen = require(''); // require the npm plugin
