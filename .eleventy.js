@@ -1,45 +1,38 @@
 module.exports = (eleventyConfig) => {
     // Create shortcode for generating meta tags
     eleventyConfig.addShortcode("metagen", (data) => {
-        console.log(data);
 
         if (data) {
-            const openGraphTags = `<meta name="og:url" content="${data.url}">
-                <meta name="og:type" content="website">
+            
+            const canonical = `<link rel="canonical" href="${data.url}">`;
+
+            const metadata = `<meta charset="utf-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <title>${data.title}</title>
+                <meta name="author" content="${data.name}">\n`.replace(/^\s+/gm, "");
+
+            const openGraph = `
+                <meta name="description" content="${data.desc}">
                 <meta name="og:title" content="${data.title}">
+                <meta name="og:type" content="website">
                 <meta name="og:description" content="${data.desc}">
+                <meta name="og:url" content="${data.url}">
                 <meta name="og:img" content="${data.url.concat(data.img)}">
-                <meta name="og:img:alt" content="${data.img_alt}">\n`.replace(/^\s+/gm, "\t");
-            const twitterTags = `
+                <meta name="og:img:alt" content="${data.img_alt}">\n`.replace(/^\s+/gm, "");
+
+            const twitterCard = `
                 <meta name="twitter:card" content="summary">
                 <meta name="twitter:site" content="${data.twitterHandle}">
-                <meta name="twitter:url" content="${data.url}">
                 <meta name="twitter:title" content="${data.title}">
                 <meta name="twitter:description" content="${data.desc}">
                 <meta name="twitter:image" content="${data.url.concat(data.img)}">
-                <meta name="twitter:image:alt" content="${data.img_alt}">`.replace(/^\s+/gm, "\t");
-            
-            return openGraphTags + twitterTags;
+                <meta name="twitter:image:alt" content="${data.img_alt}">\n`.replace(/^\s+/gm, "");
+
+            return metadata.concat(openGraph, twitterCard, canonical);
 
         } else {
-            // Open Graph Data
-            const openGraphTags = `
-                <meta property="og:url" content="">
-                <meta property="og:type" content="website">
-                <meta property="og:title" content="">
-                <meta property="og:description" content="">
-                <meta property="og:img" content="">`.replace(/^\s+/gm, "\t");
-
-            // Twitter Summary Card
-            const twitterTags = `
-                <meta name="twitter:card" content="summary">
-                <meta property="twitter:site" content="">
-                <meta property="twitter:url" content="">
-                <meta name="twitter:title" content="">
-                <meta name="twitter:description" content="Add Search to a Static Site using Custom Data Attributes">
-                <meta name="twitter:image" content="">`.replace(/^\s+/gm, "\t");
-
-            return openGraphTags + twitterTags;
+            console.log("No data was passed into the meta generator!")
         }
     });
 };

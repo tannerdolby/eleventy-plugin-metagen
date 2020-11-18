@@ -1,19 +1,15 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    {% metagen 
-        title="Some Title",
-        desc="A brief description of the page",
-        img="/path-to-img.jpg",
-        img_alt="My website logo",
-        url="https://tannerdolby.com",
-        twitterHandle="@tannerdolby" 
-    %}
-</head>
+    <head>
+        {% metagen 
+            title="Eleventy Plugin Add Meta Tags",
+            desc="A page about the eleventy-plugin-add-meta-tags",
+            url="https://tannerdolby.com",
+            img="/path-to-img.jpg",
+            img_alt="Descriptive text for image",
+            twitterHandle="@tannerdolby",
+            name="Tanner Dolby" 
+        %}
+    </head>
 <body>
     <h1>Eleventy-Meta-Generator</h1>
     <a href="https://github.com/tannerdolby/eleventy-meta-generator">View the project on Github</a>
