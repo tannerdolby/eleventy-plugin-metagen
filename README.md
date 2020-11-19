@@ -56,12 +56,13 @@ If data is provided to `metagen`, the default tags aside from the main Open Grap
 <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 <meta name="viewport" content="width=device-width initial-scale=1"> 
 <title></title> 
-<meta name="author" content="Tanner Dolby">
+<meta name="author" content="">
+<meta name="description" content="">
 <meta property="og:type" content="website"> 
 <meta name="twitter:card" content="summary"> 
 ```
 
-The `title` parameter also provides data for `<title>`. If `title` is not defined within `metagen` the `<title></title>` element will not be generated with the above default tags. The same goes for `name` and `<meta name="author">`.
+The `title` parameter also provides data for `<title>`. If `title` is not defined within `metagen` the `<title></title>` element will not be generated with the above default tags. The same rules apply for `name` and `desc`.
 
 Using `{% metagen %}` without any arguments will throw `Error: No data was added into the meta generator` and return an empty string. See [references](https://github.com/tannerdolby/eleventy-plugin-metagen/blob/master/reference.md) for more.
 
