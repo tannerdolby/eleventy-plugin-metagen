@@ -2,35 +2,6 @@
 
 An Eleventy [shortcode](https://www.11ty.dev/docs/shortcodes/) which generates document metadata containing: Open Graph, Twitter card, generic meta tags and a canonical link.
 
-## Installation
-Install the npm package [eleventy-plugin-metagen](https://www.npmjs.com/package/eleventy-plugin-metagen) with:
-
-```
-npm install eleventy-plugin-metagen
-```
-
-Next, add the plugin into your Eleventy Config file (.eleventy.js)
-
-```js
-const metagen = require('eleventy-plugin-metagen');
-module.exports = (eleventyConfig) => {
-    eleventyConfig.addPlugin(metagen);
-};
-```
-Now `metagen` can be used in any layout or template files to generate document metadata.
-
-#### Example
-
-```html
-<head>
-    {% metagen
-        title="",
-        desc="",
-        ...
-    %}
-</head>
-```
-
 ## What does it do?
 It turns [shortcodes](https://www.11ty.dev/docs/shortcodes/) like this:
 
@@ -67,6 +38,34 @@ into document metadata like this:
 <meta name="twitter:image" content="https://tannerdolby.com/images/arch-spiral-large.jpg"> 
 <meta name="twitter:image:alt" content="Archimedean Spiral"> 
 <link rel="canonical" href="https://tannerdolby.com">
+```
+
+## Installation
+Install [eleventy-plugin-metagen](https://www.npmjs.com/package/eleventy-plugin-metagen) with:
+
+```
+npm install eleventy-plugin-metagen
+```
+
+Next, add the plugin into your Eleventy Config file (.eleventy.js). Now `metagen` can be used in any layout or template files to generate document metadata.
+
+```js
+const metagen = require('eleventy-plugin-metagen');
+module.exports = (eleventyConfig) => {
+    eleventyConfig.addPlugin(metagen);
+};
+```
+
+#### Example
+
+```html
+<head>
+    {% metagen
+        title="",
+        desc="",
+        ...
+    %}
+</head>
 ```
 
 ### Custom Usage
