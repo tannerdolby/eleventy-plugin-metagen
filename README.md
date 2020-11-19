@@ -57,6 +57,8 @@ If data is provided to `metagen`, the default tags aside from Open Graph and Twi
 <title></title> 
 ```
 
+The `title` parameter also provides data for `<title>`. If `title` is not defined within `metagen` the `<title></title>` will not be generated with the above default tags.
+
 [Open Graph Reference](https://ogp.me/):
 
 | property | param | example | content |
