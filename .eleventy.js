@@ -1,4 +1,4 @@
-module.exports = (eleventyConfig) => {
+module.exports = (eleventyConfig, pluginName) => {
     // Create shortcode for generating meta tags
     eleventyConfig.addShortcode("metagen", (data) => {
 
@@ -29,6 +29,7 @@ module.exports = (eleventyConfig) => {
                 <meta name="twitter:image" content="${data.url.concat(data.img)}">
                 <meta name="twitter:image:alt" content="${data.img_alt}">\n`.replace(/^\s+/gm, "");
             
+            console.log(metadata.concat(openGraph, twitterCard, canonical));
             return metadata.concat(openGraph, twitterCard, canonical);
 
         } else {

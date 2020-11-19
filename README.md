@@ -16,7 +16,7 @@ It turns [shortcodes](https://www.11ty.dev/docs/shortcodes/) like this:
     name="Tanner Dolby"
 %}
 ```
-into document metadata containing open graph, twitter card, canonical link and generic meta tags like this:
+into document metadata containing: Open Graph, Twitter Card, Canonical link and generic meta tags like this:
 
 ```html
 <meta charset="utf-8">
@@ -29,14 +29,14 @@ into document metadata containing open graph, twitter card, canonical link and g
 <meta name="og:type" content="website">
 <meta name="og:description" content="An eleventy shortcode for generating meta tags.">
 <meta name="og:url" content="https://tannerdolby.com">
-<meta name="og:img" content="https://tannerdolby.com/path-to-img.jpg">
-<meta name="og:img:alt" content="Descriptive text for image">
+<meta name="og:img" content="https://tannerdolby.comhttps://tannerdolby.com/arch-spiral-large.jpg">
+<meta name="og:img:alt" content="An Archimedean Spiral">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@tannerdolby">
 <meta name="twitter:title" content="Eleventy Plugin Add Meta Tags">
 <meta name="twitter:description" content="An eleventy shortcode for generating meta tags.">
-<meta name="twitter:image" content="https://tannerdolby.com/path-to-img.jpg">
-<meta name="twitter:image:alt" content="Descriptive text for image">
+<meta name="twitter:image" content="https://tannerdolby.comhttps://tannerdolby.com/arch-spiral-large.jpg">
+<meta name="twitter:image:alt" content="An Archimedean Spiral">
 <link rel="canonical" href="https://tannerdolby.com">
 ```
 
