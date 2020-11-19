@@ -4,7 +4,7 @@
   "description": "An Eleventy shortcode that generates document metadata containing: Open Graph, Twitter card, generic meta tags and a canonical link.",
   "main": ".eleventy.js",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@tannerdolby"
+    "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",
