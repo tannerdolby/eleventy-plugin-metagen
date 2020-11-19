@@ -1,4 +1,4 @@
-# eleventy-plugin-add-meta-tags
+# eleventy-plugin-metagen
 
 An Eleventy [shortcode](https://www.11ty.dev/docs/shortcodes/) which generates document metadata containing: Open Graph, Twitter card, generic meta tags and a canonical link.
 
