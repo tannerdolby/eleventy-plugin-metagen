@@ -1,6 +1,6 @@
 # eleventy-plugin-add-meta-tags
 
-A [plugin](https://www.11ty.dev/docs/plugins/) that allows you to generate Open Graph, Twitter Card, canonical link and generic meta tags.
+An Eleventy [plugin](https://www.11ty.dev/docs/plugins/) that generates document metadata containing: Open Graph, Twitter card, generic meta tags and a canonical link.
 
 ## What does it do?
 It turns [shortcodes](https://www.11ty.dev/docs/shortcodes/) like this:
@@ -16,7 +16,7 @@ It turns [shortcodes](https://www.11ty.dev/docs/shortcodes/) like this:
     name="Tanner Dolby"
 %}
 ```
-into document metadata containing: Open Graph, Twitter Card, Canonical link and generic meta tags like this:
+into document metadata with the appropiate `<meta>` tags:
 
 ```html
 <meta charset="utf-8">

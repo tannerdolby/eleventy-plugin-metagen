@@ -1,7 +1,7 @@
 {
   "name": "eleventy-plugin-add-meta-tags",
   "version": "1.0.0",
-  "description": "An Eleventy shortcode which generates document metadata containing: Open Graph, Twitter Card, Canonical link, and generic meta tags.",
+  "description": "An Eleventy shortcode that generates document metadata containing: Open Graph, Twitter card, generic meta tags and a canonical link.",
   "main": ".eleventy.js",
   "repository": {
     "type": "git",
