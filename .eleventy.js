@@ -1,7 +1,6 @@
 module.exports = (eleventyConfig, pluginNamespace) => {
     eleventyConfig.namespace(pluginNamespace, () => {
         eleventyConfig.addShortcode("metagen", (data) => {
-
             if (data) {
                 const metadata = `<meta charset="utf-8">
                     <meta http-equiv="X-UA-Compatible" content="IE=edge">
