@@ -11,7 +11,7 @@ It turns [shortcodes](https://www.11ty.dev/docs/shortcodes/) like this:
 ```html
 {% metagen 
     title="Eleventy Plugin Add Meta Tags",
-    desc="An eleventy shortcode for generating meta tags",
+    desc="An eleventy shortcode for generating meta tags.",
     url="https://tannerdolby.com",
     img="https://tannerdolby.com/arch-spiral-large.jpg",
     img_alt="Archimedean Spiral",
@@ -27,17 +27,17 @@ into document metadata like this:
 <meta name="viewport" content="width=device-width initial-scale=1"> 
 <title>Eleventy Plugin Add Meta Tags</title> 
 <meta name="author" content="Tanner Dolby"> 
-<meta name="description" content="An eleventy shortcode for generating meta tags"> 
+<meta name="description" content="An eleventy shortcode for generating meta tags."> 
 <meta property="og:title" content="Eleventy Plugin Add Meta Tags"> 
 <meta property="og:type" content="website"> 
-<meta property="og:description" content="An eleventy shortcode for generating meta tags"> 
+<meta property="og:description" content="An eleventy shortcode for generating meta tags."> 
 <meta property="og:url" content="https://tannerdolby.com"> 
 <meta property="og:img" content="https://tannerdolby.com/arch-spiral-large.jpg"> 
 <meta property="og:img:alt" content="Archimedean Spiral"> 
 <meta name="twitter:card" content="summary"> 
 <meta name="twitter:site" content="@tannerdolby"> 
 <meta name="twitter:title" content="Eleventy Plugin Add Meta Tags"> 
-<meta name="twitter:description" content="An eleventy shortcode for generating meta tags"> 
+<meta name="twitter:description" content="An eleventy shortcode for generating meta tags."> 
 <meta name="twitter:image" content="https://tannerdolby.com/arch-spiral-large.jpg"> 
 <meta name="twitter:image:alt" content="Archimedean Spiral"> 
 <link rel="canonical" href="https://tannerdolby.com">
