@@ -25,12 +25,12 @@ into document metadata like this:
 <title>Eleventy Plugin Add Meta Tags</title>
 <meta name="author" content="Tanner Dolby">
 <meta name="description" content="An eleventy shortcode for generating meta tags.">
-<meta name="og:title" content="Eleventy Plugin Add Meta Tags">
-<meta name="og:type" content="website">
-<meta name="og:description" content="An eleventy shortcode for generating meta tags.">
-<meta name="og:url" content="https://tannerdolby.com">
-<meta name="og:img" content="https://tannerdolby.comhttps://tannerdolby.com/arch-spiral-large.jpg">
-<meta name="og:img:alt" content="An Archimedean Spiral">
+<meta property="og:title" content="Eleventy Plugin Add Meta Tags">
+<meta property="og:type" content="website">
+<meta property="og:description" content="An eleventy shortcode for generating meta tags.">
+<meta property="og:url" content="https://tannerdolby.com">
+<meta property="og:img" content="https://tannerdolby.comhttps://tannerdolby.com/arch-spiral-large.jpg">
+<meta property="og:img:alt" content="An Archimedean Spiral">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@tannerdolby">
 <meta name="twitter:title" content="Eleventy Plugin Add Meta Tags">
