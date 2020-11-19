@@ -43,11 +43,11 @@ into document metadata like this:
 <!-- ## Installation (TODO)
 `npm install eleventy-meta-generator` to make the shortcode `metagen` available in your project. -->
 
-## Shortcode Parameters
+## Shortcode Options
 
 [Open Graph Reference](https://ogp.me/):
 
-| name | param | example | content |
+| property | param | example | content |
 | ------ | ------ | ------ | ------ |
 | [og:title] | `title` | "Eleventy Meta Tag Plugin"  | The title of your object as it should appear in the graph. |
 | [og:type] | not required | "website" | The type of your object, default option is website. |
@@ -68,8 +68,16 @@ into document metadata like this:
 | [twitter:img:alt] | `img_alt` | "An Archimedean Spiral" | A text description of the image conveying the essential nature of an image to users who are visually impaired. |
 
 ## TODO
+- [ ] Figure out how to use template variables as parameters to the shortcode, I tried pairedShortCode but need to investigate more.
 - [ ] Use Open Graph API with `eleventy-cache-assets` to cache the `url` request and make sure output is correct for meta tags.
 - [ ] Maybe add a few more meta tags that are commonly used and not included in the shortcode output
+
+## Limitations
+Currently the biggest limitation of this plugin is the fact that the parameters passed into the shortcode `metagen` will have to be user input strings. Passing template variables such as `{{ var }}` as parameters to `metagen` is not yet supported.
+
+If you want to use data from eleventy front matter data, global data and things like `{{ page.url }}`. You must wait until its supported.
+
+> Note: I recommend using the `metagen` shortcode for `HTML` pages that don't rely on data from front matter, global data or eleventyComputed in the `<head>`. One example of the current limitations occur when using [Pagination](https://www.11ty.dev/docs/pagination/), since the pages are being generated from a single layout or template file, I use `<meta property="og:url" content="{{ page.url }}">` to provide the correct URL even if the filename changes. This is a clear example of where you would keep the `<meta>` tags that need template variable data `{{ data }}` and use `metagen` for any remaining tags until this functionality is supported.
 
 ## Maintainers
 @tannerdolby
