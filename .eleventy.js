@@ -1,33 +1,125 @@
 module.exports = (eleventyConfig, pluginNamespace) => {
-    eleventyConfig.namespace(pluginNamespace, () => {
-        eleventyConfig.addShortcode("metagen", (data) => {
-            if (data) {
-                const canonical = `<link rel="canonical" href="${data.url}">`;
-                const metadata = `<meta charset="utf-8">
-                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                    <meta name="viewport" content="width=device-width, initial-scale=1">
-                    <title>${data.title}</title>
-                    <meta name="author" content="${data.name}">\n`.replace(/^\s+/gm, "");
-                const openGraph = `
-                    <meta property="description" content="${data.desc}">
-                    <meta property="og:title" content="${data.title}">
-                    <meta property="og:type" content="website">
-                    <meta property="og:description" content="${data.desc}">
-                    <meta property="og:url" content="${data.url}">
-                    <meta property="og:img" content="${data.url.concat(data.img)}">
-                    <meta property="og:img:alt" content="${data.img_alt}">\n`.replace(/^\s+/gm, "");
-                const twitterCard = `
-                    <meta name="twitter:card" content="summary">
-                    <meta name="twitter:site" content="${data.twitterHandle}">
-                    <meta name="twitter:title" content="${data.title}">
-                    <meta name="twitter:description" content="${data.desc}">
-                    <meta name="twitter:image" content="${data.url.concat(data.img)}">
-                    <meta name="twitter:image:alt" content="${data.img_alt}">\n`.replace(/^\s+/gm, "");
-                
-                return metadata.concat(openGraph, twitterCard, canonical);
-            } else {
-                console.log("No data was passed into the meta generator!")
+    eleventyConfig.addShortcode("metagen", (data) => {
+        const OBJ = {
+            title: data.title,
+            url: data.url,
+            image: data.img,
+            image_alt: data.img_alt,
+            desc: data.desc,
+            openGraph: {
+                type: "website"
+            },
+            twitter: {
+                card: "summary",
+                site: data.twitterHandle,
             }
-        });
+        }
+        if (data) {
+
+            const metadata = `<meta charset="utf-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <title>${data.title}</title>
+                <meta name="author" content="${data.name}">
+                <meta name="description" content="${data.desc}">\n`.replace(/^\s+/gm, "");
+            const openGraph = `
+                <meta property="og:title" content="${data.title}">
+                <meta property="og:type" content="website">
+                <meta property="og:description" content="${data.desc}">
+                <meta property="og:url" content="${data.url}">
+                <meta property="og:img" content="${data.img}">
+                <meta property="og:img:alt" content="${data.img_alt}">\n`.replace(/^\s+/gm, "");
+            const twitterCard = `
+                <meta name="twitter:card" content="summary">
+                <meta name="twitter:site" content="${data.twitterHandle}">
+                <meta name="twitter:title" content="${data.title}">
+                <meta name="twitter:description" content="${data.desc}">
+                <meta name="twitter:image" content="${data.img}">
+                <meta name="twitter:image:alt" content="${data.img_alt}">\n`.replace(/^\s+/gm, "");
+            const canonical = `<link rel="canonical" href="${data.url}">`;
+
+            /* 
+               if all the arguments arent used, thats ok! 
+               until template variables can be passed into metagen as arguments this must exist
+            */
+            
+            /**
+             * Splits a template literal string into an array of substrings 
+             * representing document metadata tags.
+             * 
+             * @param {String} templateLiteral The template literal string.
+             * @returns {Array} The array of words, ie all tags 
+             */
+            function makeArray(templateLiteral) {
+                return templateLiteral.split("\n");
+            }
+
+            /**
+             * Returns a filtered array that removes
+             * any meta tags with content="undefined"
+             * 
+             * @param {Array} literalArr The array of meta tags.
+             * @returns {Array} The filtered array.
+             */
+            function removeEmptyTags(literalArr) {
+               return literalArr.filter(tag => {
+                    return tag.includes("undefined") === false;
+                });
+            }
+
+            /**
+             * Returns the properly new-line formatted literal strings.
+             * @param {Array} literalArr The valid tags from an array of template literal strings.
+             * @returns {String} The string of template literals properly formatted.
+            */
+            function format(literalArr) {
+                return literalArr.join(", \n").replace(/[,]+/gm, "");
+            }
+
+            /* 
+               if any tags in the output are undefined 
+               due to the shortcode being used without all arguments, 
+               filter the tags we have content for.
+            */
+            const output = makeArray(metadata.concat(openGraph, twitterCard, canonical));
+            const validTags = removeEmptyTags(output);
+            const cleanOutput = format(validTags);
+        
+            return cleanOutput;
+
+        } else {
+            console.log("No data was passed into the meta generator!")
+        }
     });
+    // eleventyConfig.namespace(pluginNamespace, () => {
+    //     eleventyConfig.addShortcode("metagen", (data) => {
+    //         if (data) {
+    //             const canonical = `<link rel="canonical" href="${data.url}">`;
+    //             const metadata = `<meta charset="utf-8">
+    //                 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    //                 <meta name="viewport" content="width=device-width, initial-scale=1">
+    //                 <title>${data.title}</title>
+    //                 <meta name="author" content="${data.name}">\n`.replace(/^\s+/gm, "");
+    //             const openGraph = `
+    //                 <meta property="description" content="${data.desc}">
+    //                 <meta property="og:title" content="${data.title}">
+    //                 <meta property="og:type" content="website">
+    //                 <meta property="og:description" content="${data.desc}">
+    //                 <meta property="og:url" content="${data.url}">
+    //                 <meta property="og:img" content="${data.url.concat(data.img)}">
+    //                 <meta property="og:img:alt" content="${data.img_alt}">\n`.replace(/^\s+/gm, "");
+    //             const twitterCard = `
+    //                 <meta name="twitter:card" content="summary">
+    //                 <meta name="twitter:site" content="${data.twitterHandle}">
+    //                 <meta name="twitter:title" content="${data.title}">
+    //                 <meta name="twitter:description" content="${data.desc}">
+    //                 <meta name="twitter:image" content="${data.url.concat(data.img)}">
+    //                 <meta name="twitter:image:alt" content="${data.img_alt}">\n`.replace(/^\s+/gm, "");
+                
+    //             return metadata.concat(openGraph, twitterCard, canonical);
+    //         } else {
+    //             console.log("No data was passed into the meta generator!")
+    //         }
+    //     });
+    // });
 };
