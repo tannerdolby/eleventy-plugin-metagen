@@ -3,3 +3,6 @@ _site
 
 # node modules
 node_modules
+
+# npm rc
+.npmrc
