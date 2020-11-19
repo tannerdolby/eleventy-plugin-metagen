@@ -26,6 +26,9 @@
     "email": "dolb.tanner@gmail.com",
     "url": "https://tannerdolby.com"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "license": "MIT",
   "dependencies": {
     "@11ty/eleventy": "^0.11.1"
