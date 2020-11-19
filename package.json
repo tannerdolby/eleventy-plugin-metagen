@@ -1,26 +1,25 @@
 {
-  "name": "eleventy-meta-generator",
+  "name": "eleventy-plugin-add-meta-tags",
   "version": "1.0.0",
-  "description": "An Eleventy plugin for generating Open Graph and Twitter meta tags using a shortcode.",
+  "description": "An Eleventy shortcode which generates document metadata containing: Open Graph, Twitter Card, Canonical link, and generic meta tags.",
   "main": ".eleventy.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:tannerdolby/eleventy-meta-generator.git"
+    "url": "git@github.com:tannerdolby/eleventy-plugin-add-meta-tags.git"
   },
   "bugs": {
-    "url": "https://github.com/tannerdolby/eleventy-meta-generator/issues/"
+    "url": "https://github.com/tannerdolby/eleventy-plugin-add-meta-tags/issues/"
   },
-  "homepage": "https://github.com/tannerdolby/eleventy-meta-generator#readme",
+  "homepage": "https://github.com/tannerdolby/eleventy-plugin-add-meta-tags#readme",
   "scripts": {
     "build": "eleventy build",
-    "start": "eleventy --serve",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "eleventy --serve"
   },
   "keywords": [
     "eleventy",
     "11ty",
     "meta-tags",
-    "meta-generator"
+    "meta-tag-generator"
   ],
   "author": {
     "name": "Tanner Dolby",
