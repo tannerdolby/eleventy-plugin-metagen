@@ -11,6 +11,8 @@
 
 Use all seven arguments or just a few depending on your needs, it will generate `<meta>` tags for arguments you provide data for, otherwise only generates the default generic tags.
 
+### [Open Graph Reference](https://ogp.me/)
+
 | tag | param | example | content |
 | ------ | ------ | ------ | ------ |
 | [og:title] | `title` | "Eleventy Meta Tag Plugin"  | The title of your object as it should appear in the graph. |
@@ -20,7 +22,7 @@ Use all seven arguments or just a few depending on your needs, it will generate 
 | [og:image] | `img` | "https://tannerdolby.com/arch-spiral-large.jpg" | An image URL which should represent your object within the graph. |
 | [og:image:alt] | `img_alt` | "An Archimedean Spiral" | A description of what is in the image (not a caption). If the page specifies an og:image it should specify og:image:alt. |
 
-## [Twitter Card Reference](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup):
+### [Twitter Card Reference](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup):
 
 | tag | param | example | content |
 | ------ | ------ | ------ | ------ |

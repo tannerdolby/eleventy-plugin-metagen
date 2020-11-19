@@ -63,7 +63,7 @@ If data is provided to `metagen`, the default tags aside from the main Open Grap
 
 The `title` parameter also provides data for `<title>`. If `title` is not defined within `metagen` the `<title></title>` element will not be generated with the above default tags. The same goes for `name` and `<meta name="author">`.
 
-Using `{% metagen %}` without any arguments will throw `Error: No data was added into the meta generator` and return an empty string. See [references](https://github.com/tannerdolby/eleventy-plugin-metagen/reference.md) for more.
+Using `{% metagen %}` without any arguments will throw `Error: No data was added into the meta generator` and return an empty string. See [references](https://github.com/tannerdolby/eleventy-plugin-metagen/blob/master/reference.md) for more.
 
 ## TODO
 - [ ] Figure out how to use template variables as parameters to the shortcode, I tried pairedShortCode but need to investigate more.
