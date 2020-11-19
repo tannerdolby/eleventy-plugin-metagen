@@ -49,22 +49,25 @@ Providing all seven arguments to `metagen` is recommended, but until there is su
 Only the arguments you provide data for will be generated as `<meta>` tags. This allows you to include some of your own tags alongside `metagen` that use data from other sources, such as `<meta property="og:title" content="{{ page.url }}>"`. See [Limitations](https://github.com/tannerdolby/eleventy-plugin-add-meta-tags#limitations) for more!
 
 ## Shortcode Options
-If data is provided to `metagen`, the default tags aside from Open Graph and Twitter card are:
+If data is provided to `metagen`, the default tags aside from the main Open Graph and Twitter card data are:
 ```
 <meta charset="utf-8"> 
 <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 <meta name="viewport" content="width=device-width initial-scale=1"> 
 <title></title> 
+<meta name="author" content="Tanner Dolby">
+<meta property="og:type" content="website"> 
+<meta name="twitter:card" content="summary"> 
 ```
 
-The `title` parameter also provides data for `<title>`. If `title` is not defined within `metagen` the `<title></title>` element will not be generated with the above default tags.
+The `title` parameter also provides data for `<title>`. If `title` is not defined within `metagen` the `<title></title>` element will not be generated with the above default tags. The same goes for `name` and `<meta name="author">`.
 
 [Open Graph Reference](https://ogp.me/):
 
-| property | param | example | content |
+| tag | param | example | content |
 | ------ | ------ | ------ | ------ |
 | [og:title] | `title` | "Eleventy Meta Tag Plugin"  | The title of your object as it should appear in the graph. |
-| [og:type] | not required | "website" | The type of your object, default option is website. |
+| [og:type] | default | "website" | The type of your object. The default type is website. |
 | [og:description] | `desc` | "An eleventy shortcode for generating meta tags." | A one or two sentence description of your object. |
 | [og:url] | `url` | "https://tannerdolby.com" | The canonical URL of your object that will be used as its permanent ID in the graph. |
 | [og:image] | `img` | "https://tannerdolby.com/arch-spiral-large.jpg" | An image URL which should represent your object within the graph. |
@@ -72,9 +75,9 @@ The `title` parameter also provides data for `<title>`. If `title` is not define
 
 [Twitter Card Reference](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup):
 
-| name | param | example | content |
+| tag | param | example | content |
 | ------ | ------ | ------ | ------ |
-| [twitter:card] | not required | "summary" | Must be set to a value of summary (this is default). |
+| [twitter:card] | default | "summary" | Must be set to a value of summary (included by default). |
 | [twitter:site] | `twitterHandle` | "@tannerdolby" | The Twitter @username the card should be attributed to. |
 | [twitter:title] | `title` | "Eleventy Meta Tag Plugin" | A concise title for the related content. |
 | [twitter:description] | `desc` | "An eleventy shortcode for generating meta tags."  | Description of content. |
