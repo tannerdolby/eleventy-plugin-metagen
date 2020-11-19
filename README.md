@@ -46,11 +46,12 @@ into document metadata like this:
 ### Custom Usage
 Providing all seven arguments to `metagen` is recommended, but until there is support for template variables to be parameters in the `metagen` shortcode. If you only need a few meta tags, that works! 
 
-Only the arguments you provide data for will be generated as `<meta>` tags. This allows you to include some of your own tags alongside `metagen` that use data from other sources, such as `<meta property="og:title" content="{{ page.url }}>"`. See [Limitations](https://github.com/tannerdolby/eleventy-plugin-add-meta-tags#limitations) for more!
+Only the arguments you provide data for will be generated as `<meta>` tags. This allows you to include some of your own tags alongside `metagen` that use data from other sources, such as `<meta property="og:title" content="{{ page.url }}>"`. See [limitations](https://github.com/tannerdolby/eleventy-plugin-add-meta-tags#limitations) for more.
 
 ## Shortcode Options
 
 If data is provided to `metagen`, the default tags aside from the main Open Graph and Twitter card data are:
+
 ```
 <meta charset="utf-8"> 
 <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
