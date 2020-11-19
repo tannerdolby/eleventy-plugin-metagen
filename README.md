@@ -15,7 +15,7 @@ The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) like t
     name="Tanner Dolby"
 %}
 ```
-into [document metadata](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML) like this:
+into document metadata like this:
 
 ```html
 <meta charset="utf-8"> 
