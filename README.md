@@ -49,6 +49,7 @@ Providing all seven arguments to `metagen` is recommended, but until there is su
 Only the arguments you provide data for will be generated as `<meta>` tags. This allows you to include some of your own tags alongside `metagen` that use data from other sources, such as `<meta property="og:title" content="{{ page.url }}>"`. See [Limitations](https://github.com/tannerdolby/eleventy-plugin-add-meta-tags#limitations) for more!
 
 ## Shortcode Options
+
 If data is provided to `metagen`, the default tags aside from the main Open Graph and Twitter card data are:
 ```
 <meta charset="utf-8"> 
@@ -62,29 +63,7 @@ If data is provided to `metagen`, the default tags aside from the main Open Grap
 
 The `title` parameter also provides data for `<title>`. If `title` is not defined within `metagen` the `<title></title>` element will not be generated with the above default tags. The same goes for `name` and `<meta name="author">`.
 
-Using `{% metagen %}` without any arguments will throw `Error: No data was added into the meta generator` and return an empty string.
-
-[Open Graph Reference](https://ogp.me/):
-
-| tag | param | example | content |
-| ------ | ------ | ------ | ------ |
-| [og:title] | `title` | "Eleventy Meta Tag Plugin"  | The title of your object as it should appear in the graph. |
-| [og:type] | default | "website" | The type of your object. The default type is website. |
-| [og:description] | `desc` | "An eleventy shortcode for generating meta tags." | A one or two sentence description of your object. |
-| [og:url] | `url` | "https://tannerdolby.com" | The canonical URL of your object that will be used as its permanent ID in the graph. |
-| [og:image] | `img` | "https://tannerdolby.com/arch-spiral-large.jpg" | An image URL which should represent your object within the graph. |
-| [og:image:alt] | `img_alt` | "An Archimedean Spiral" | A description of what is in the image (not a caption). If the page specifies an og:image it should specify og:image:alt. |
-
-[Twitter Card Reference](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup):
-
-| tag | param | example | content |
-| ------ | ------ | ------ | ------ |
-| [twitter:card] | default | "summary" | Must be set to a value of summary (included by default). |
-| [twitter:site] | `twitterHandle` | "@tannerdolby" | The Twitter @username the card should be attributed to. |
-| [twitter:title] | `title` | "Eleventy Meta Tag Plugin" | A concise title for the related content. |
-| [twitter:description] | `desc` | "An eleventy shortcode for generating meta tags."  | Description of content. |
-| [twitter:img] | `img` | "https://tannerdolby.com/arch-spiral-large.jpg" | A URL to a unique image representing the content of the page. |
-| [twitter:img:alt] | `img_alt` | "An Archimedean Spiral" | A text description of the image conveying the essential nature of an image to users who are visually impaired. |
+Using `{% metagen %}` without any arguments will throw `Error: No data was added into the meta generator` and return an empty string. See [references](https://github.com/tannerdolby/eleventy-plugin-metagen/reference.md) for more.
 
 ## TODO
 - [ ] Figure out how to use template variables as parameters to the shortcode, I tried pairedShortCode but need to investigate more.
