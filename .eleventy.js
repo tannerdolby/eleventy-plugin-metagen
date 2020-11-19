@@ -3,7 +3,7 @@ module.exports = (eleventyConfig) => {
     eleventyConfig.addShortcode("metagen", (data) => {
 
         if (data) {
-            
+
             const canonical = `<link rel="canonical" href="${data.url}">`;
 
             const metadata = `<meta charset="utf-8">
@@ -28,7 +28,7 @@ module.exports = (eleventyConfig) => {
                 <meta name="twitter:description" content="${data.desc}">
                 <meta name="twitter:image" content="${data.url.concat(data.img)}">
                 <meta name="twitter:image:alt" content="${data.img_alt}">\n`.replace(/^\s+/gm, "");
-
+            
             return metadata.concat(openGraph, twitterCard, canonical);
 
         } else {
