@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "An Eleventy shortcode that generates document metadata containing: Open Graph, Twitter card, generic meta tags and a canonical link.",
   "main": ".eleventy.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@tannerdolby"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:tannerdolby/eleventy-plugin-metagen.git"
@@ -25,9 +28,6 @@
     "name": "Tanner Dolby",
     "email": "dolb.tanner@gmail.com",
     "url": "https://tannerdolby.com"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   },
   "license": "MIT",
   "dependencies": {
