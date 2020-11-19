@@ -1,9 +1,8 @@
 # eleventy-plugin-metagen
-
 An Eleventy [shortcode](https://www.11ty.dev/docs/shortcodes/) which generates document metadata containing: Open Graph, Twitter card, generic meta tags and a canonical link.
 
 ## What does it do?
-It turns [shortcodes](https://www.11ty.dev/docs/shortcodes/) like this:
+The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) like this:
 
 ```html
 {% metagen 
@@ -16,7 +15,7 @@ It turns [shortcodes](https://www.11ty.dev/docs/shortcodes/) like this:
     name="Tanner Dolby"
 %}
 ```
-into document metadata like this:
+into [document metadata](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML) like this:
 
 ```html
 <meta charset="utf-8"> 
