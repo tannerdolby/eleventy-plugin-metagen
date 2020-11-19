@@ -9,13 +9,13 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                     <title>${data.title}</title>
                     <meta name="author" content="${data.name}">\n`.replace(/^\s+/gm, "");
                 const openGraph = `
-                    <meta name="description" content="${data.desc}">
-                    <meta name="og:title" content="${data.title}">
-                    <meta name="og:type" content="website">
-                    <meta name="og:description" content="${data.desc}">
-                    <meta name="og:url" content="${data.url}">
-                    <meta name="og:img" content="${data.url.concat(data.img)}">
-                    <meta name="og:img:alt" content="${data.img_alt}">\n`.replace(/^\s+/gm, "");
+                    <meta property="description" content="${data.desc}">
+                    <meta property="og:title" content="${data.title}">
+                    <meta property="og:type" content="website">
+                    <meta property="og:description" content="${data.desc}">
+                    <meta property="og:url" content="${data.url}">
+                    <meta property="og:img" content="${data.url.concat(data.img)}">
+                    <meta property="og:img:alt" content="${data.img_alt}">\n`.replace(/^\s+/gm, "");
                 const twitterCard = `
                     <meta name="twitter:card" content="summary">
                     <meta name="twitter:site" content="${data.twitterHandle}">
