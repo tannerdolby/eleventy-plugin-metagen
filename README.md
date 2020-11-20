@@ -90,9 +90,7 @@ Using `{% metagen %}` without any arguments will throw `Error: No data was added
 - [ ] Maybe add a few more meta tags that are commonly used and not included in the shortcode output
 
 ## Limitations
-Currently the biggest limitation of this plugin is the fact that the parameters passed into the shortcode `metagen` will have to be user input strings. Passing template variables such as `{{ var }}` as parameters to `metagen` is not yet supported.
-
-> If you want to use data from eleventy front matter data, global data and things like `{{ page.url }}`. You must wait until its supported.
+Currently the biggest limitation of this plugin is the fact that the parameters passed into the shortcode `metagen` will have to be user input strings. Passing template variables such as `{{ var }}` as parameters to `metagen` is not yet supported. If you want to use data from eleventy front matter data, global data and things like `{{ page.url }}`. You must wait until its supported.
 
 Note: I recommend using the `metagen` shortcode for `HTML` pages that don't rely on data from front matter, global data or eleventyComputed in the `<head>`. One example of the current limitations occur when using [Pagination](https://www.11ty.dev/docs/pagination/). 
 
