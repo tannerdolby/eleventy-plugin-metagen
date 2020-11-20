@@ -1,6 +1,22 @@
 # eleventy-plugin-metagen
 An Eleventy [shortcode](https://www.11ty.dev/docs/shortcodes/) which generates document metadata containing: Open Graph, Twitter card, generic meta tags and a canonical link.
 
+## Installation
+In your Eleventy project, [install the plugin](https://www.npmjs.com/package/eleventy-plugin-metagen) from npm:
+
+```
+npm install eleventy-plugin-metagen
+```
+
+Then add the plugin into your [Eleventy Config](https://www.11ty.dev/docs/config/) file:
+
+```js
+const metagen = require('eleventy-plugin-metagen');
+module.exports = (eleventyConfig) => {
+    eleventyConfig.addPlugin(metagen);
+};
+```
+
 ## What does it do?
 The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) like this:
 
@@ -39,38 +55,10 @@ into document metadata like this:
 <link rel="canonical" href="https://tannerdolby.com">
 ```
 
-## Installation
-Install [eleventy-plugin-metagen](https://www.npmjs.com/package/eleventy-plugin-metagen) with:
-
-```
-npm install eleventy-plugin-metagen
-```
-
-Next, add the plugin into your Eleventy Config file (.eleventy.js). Now `metagen` can be used in any layout or template files to generate document metadata.
-
-```js
-const metagen = require('eleventy-plugin-metagen');
-module.exports = (eleventyConfig) => {
-    eleventyConfig.addPlugin(metagen);
-};
-```
-
-#### Usage example
-
-```html
-<head>
-    {% metagen
-        title="",
-        desc="",
-        ...
-    %}
-</head>
-```
-
 ### Custom Usage
 Providing all seven comma separated arguments to `metagen` is recommended until there is support for template variables to be parameters in the `metagen` shortcode. You might only need a few meta tags instead of the whole set, simply use the arguments you need and the ones not included won't generate `<meta>` tags.
 
-Only the arguments you provide data for will be generated as `<meta>` tags. This allows you to include some of your own tags alongside `metagen` that use data from other sources, such as `<meta property="og:title" content="{{ page.url }}>"`. See [limitations](https://github.com/tannerdolby/eleventy-plugin-add-meta-tags#limitations) for more.
+Only the arguments you provide data for will be generated as `<meta>` tags. This allows you to include some of your own tags alongside `metagen` that use data from other sources, such as `<meta property="og:title" content="{{ page.url }}>"`.
 
 ## Shortcode Options
 
@@ -89,14 +77,11 @@ If data is provided to `metagen`, the default tags aside from the main Open Grap
 
 The `title` parameter also provides data for `<title>`. If `title` is not defined within `metagen` the `<title>` element will not be generated with the above default tags. The same rules apply for `name` and `desc`.
 
-Using `{% metagen %}` without any arguments will throw `Error: No data was added into the meta generator` and return an empty string. See [references](https://github.com/tannerdolby/eleventy-plugin-metagen/blob/master/reference.md) for more.
+Using `{% metagen %}` without any arguments will throw `Error: No data was added into the meta generator` and return an empty string.
 
-## eleventy-plugin-metagen reference
-
-Use all seven arguments or just a few depending on your needs, the shortcode will generate `<meta>` tags for arguments you provide data for, otherwise it only generates the default generic tags.
-
-- [Open Graph Reference](https://ogp.me/)
-- [Twitter Card Reference](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup)
+### Meta Tag Reference
+- [Open Graph](https://ogp.me/)
+- [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup)
 
 ## TODO
 - [ ] Figure out how to use template variables as parameters to the shortcode, I tried pairedShortCode but need to investigate more.
