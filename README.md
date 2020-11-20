@@ -8,7 +8,7 @@ In your Eleventy project, [install the plugin](https://www.npmjs.com/package/ele
 npm install eleventy-plugin-metagen
 ```
 
-Then add it to your [Eleventy Config](https://www.11ty.dev/docs/config/) file using `addPlugin`:
+Then add it to your [Eleventy Config](https://www.11ty.dev/docs/config/) file:
 
 ```js
 const metagen = require('eleventy-plugin-metagen');
