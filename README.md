@@ -91,33 +91,26 @@ The `title` parameter also provides data for `<title>`. If `title` is not define
 
 Using `{% metagen %}` without any arguments will throw `Error: No data was added into the meta generator` and return an empty string. See [references](https://github.com/tannerdolby/eleventy-plugin-metagen/blob/master/reference.md) for more.
 
+## eleventy-plugin-metagen reference
+
+Use all seven arguments or just a few depending on your needs, the shortcode will generate `<meta>` tags for arguments you provide data for, otherwise it only generates the default generic tags.
+
+- [Open Graph Reference](https://ogp.me/)
+- [Twitter Card Reference](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup)
+
 ## TODO
 - [ ] Figure out how to use template variables as parameters to the shortcode, I tried pairedShortCode but need to investigate more.
 - [ ] Use Open Graph API with `eleventy-cache-assets` to cache the `url` request and make sure output is correct for meta tags.
 - [ ] Maybe add a few more meta tags that are commonly used and not included in the shortcode output
-
-## eleventy-plugin-metagen reference
-
-`metagen` arguments:
-- `title`
-- `desc`
-- `url`
-- `img`
-- `img_alt`
-- `twitterHandle`
-- `name`
-
-Use all seven arguments or just a few depending on your needs, it will generate `<meta>` tags for arguments you provide data for, otherwise only generates the default generic tags.
 
 ## Limitations
 Currently the biggest limitation of this plugin is the fact that the parameters passed into the shortcode `metagen` will have to be user input strings. Passing template variables such as `{{ var }}` as parameters to `metagen` is not yet supported.
 
 > If you want to use data from eleventy front matter data, global data and things like `{{ page.url }}`. You must wait until its supported.
 
-Note: I recommend using the `metagen` shortcode for `HTML` pages that don't rely on data from front matter, global data or eleventyComputed in the `<head>`. One example of the current limitations occur when using [Pagination](https://www.11ty.dev/docs/pagination/). Since the pages are being generated from a single layout or template file, I use `<meta property="og:url" content="{{ page.url }}">` to provide the correct URL even if the filename changes. This is a clear example of where you would keep the `<meta>` tags that need template variable data `{{ data }}` and use `metagen` for any remaining tags until this functionality is supported.
+Note: I recommend using the `metagen` shortcode for `HTML` pages that don't rely on data from front matter, global data or eleventyComputed in the `<head>`. One example of the current limitations occur when using [Pagination](https://www.11ty.dev/docs/pagination/). 
 
-- [Open Graph Reference](https://ogp.me/)
-- [Twitter Card Reference](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup)
+Since the pages are being generated from a single layout or template file, I use `<meta property="og:url" content="{{ page.url }}">` to provide the correct URL even if the filename changes. This is a clear example of where you would keep the `<meta>` tags that need template variable data `{{ data }}` and use `metagen` for any remaining tags until this functionality is supported.
 
 ## Maintainers
 @tannerdolby
