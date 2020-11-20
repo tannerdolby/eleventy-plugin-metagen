@@ -72,7 +72,7 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                 const output = makeArray(metadata.concat(openGraph, twitterCard, canonical));
                 const validTags = removeEmptyTags(output);
                 const cleanOutput = format(validTags);
-                console.log(cleanOutput);
+
                 return cleanOutput;
 
             } else {
