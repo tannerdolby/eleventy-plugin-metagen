@@ -58,8 +58,10 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                  * @param {Array} literalArr The valid tags from an array of template literal strings.
                  * @returns {String} The string of template literals properly formatted.
                 */
+
+                // someone call pest control? ;p
                 function format(literalArr) {
-                    return literalArr.join(", \n").replace(/[,]+/gm, "");
+                    return literalArr.join("\n").replace(/[,]$/gm, "");
                 }
 
                 /* 
@@ -70,7 +72,7 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                 const output = makeArray(metadata.concat(openGraph, twitterCard, canonical));
                 const validTags = removeEmptyTags(output);
                 const cleanOutput = format(validTags);
-            
+                console.log(cleanOutput);
                 return cleanOutput;
 
             } else {
