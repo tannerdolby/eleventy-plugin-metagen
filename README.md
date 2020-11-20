@@ -8,7 +8,7 @@ In your Eleventy project, [install the plugin](https://www.npmjs.com/package/ele
 npm install eleventy-plugin-metagen
 ```
 
-Then add it into your [Eleventy Config](https://www.11ty.dev/docs/config/) file:
+Then add it to your [Eleventy Config](https://www.11ty.dev/docs/config/) file using `addPlugin`:
 
 ```js
 const metagen = require('eleventy-plugin-metagen');
@@ -32,7 +32,7 @@ The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) like t
     name="Tanner Dolby"
 %}
 ```
-into document metadata like this:
+into `<meta>` tags and other document metadata like this:
 
 ```html
 <meta charset="utf-8"> 
@@ -92,7 +92,7 @@ Using `{% metagen %}` without any arguments will throw `Error: No data was added
 ## Limitations
 Currently the biggest limitation of this plugin is the fact that the parameters passed into the shortcode `metagen` will have to be user input strings. Passing template variables such as `{{ var }}` as parameters to `metagen` is not yet supported. If you want to use data from eleventy front matter data, global data and things like `{{ page.url }}`. You must wait until its supported.
 
-Note: I recommend using the `metagen` shortcode for `HTML` pages that don't rely on data from front matter, global data or eleventyComputed in the `<head>`. One example of the current limitations occur when using [Pagination](https://www.11ty.dev/docs/pagination/). 
+> Note: I recommend using the `metagen` shortcode for `HTML` pages that don't rely on data from front matter, global data or eleventyComputed in the `<head>`. One example of the current limitations occur when using [Pagination](https://www.11ty.dev/docs/pagination/). 
 
 Since the pages are being generated from a single layout or template file, I use `<meta property="og:url" content="{{ page.url }}">` to provide the correct URL even if the filename changes. This is a clear example of where you would keep the `<meta>` tags that need template variable data `{{ data }}` and use `metagen` for any remaining tags until this functionality is supported.
 
