@@ -12,6 +12,7 @@ Then add the plugin into your [Eleventy Config](https://www.11ty.dev/docs/config
 
 ```js
 const metagen = require('eleventy-plugin-metagen');
+
 module.exports = (eleventyConfig) => {
     eleventyConfig.addPlugin(metagen);
 };
