@@ -8,15 +8,13 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                     <title>${data.title}</title>
                     <meta name="author" content="${data.name}">
                     <meta name="description" content="${data.desc}">\n`.replace(/^\s+/gm, "");
-                const openGraph = `
-                    <meta property="og:title" content="${data.title}">
+                const openGraph = `<meta property="og:title" content="${data.title}">
                     <meta property="og:type" content="website">
                     <meta property="og:description" content="${data.desc}">
                     <meta property="og:url" content="${data.url}">
                     <meta property="og:img" content="${data.img}">
                     <meta property="og:img:alt" content="${data.img_alt}">\n`.replace(/^\s+/gm, "");
-                const twitterCard = `
-                    <meta name="twitter:card" content="summary">
+                const twitterCard = `<meta name="twitter:card" content="summary">
                     <meta name="twitter:site" content="${data.twitterHandle}">
                     <meta name="twitter:title" content="${data.title}">
                     <meta name="twitter:description" content="${data.desc}">
@@ -24,10 +22,8 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                     <meta name="twitter:image:alt" content="${data.img_alt}">\n`.replace(/^\s+/gm, "");
                 const canonical = `<link rel="canonical" href="${data.url}">`;
 
-                /* 
-                if all the arguments arent used, thats ok! 
-                until template variables can be passed into metagen as arguments this must exist
-                */
+                // if all the arguments aren't used, thats ok! 
+                // until template variables can be passed into metagen as arguments this must exist
                 
                 /**
                  * Splits a template literal string into an array of substrings 
@@ -58,17 +54,10 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                  * @param {Array} literalArr The valid tags from an array of template literal strings.
                  * @returns {String} The string of template literals properly formatted.
                 */
-
-                // someone call pest control? ;p
                 function format(literalArr) {
                     return literalArr.join("\n").replace(/[,]$/gm, "");
                 }
 
-                /* 
-                if any tags in the output are undefined 
-                due to the shortcode being used without all arguments, 
-                filter the tags we have content for.
-                */
                 const output = makeArray(metadata.concat(openGraph, twitterCard, canonical));
                 const validTags = removeEmptyTags(output);
                 const cleanOutput = format(validTags);
@@ -80,5 +69,5 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                 return "";
             }
         });
-    });
+   });
 };
