@@ -92,10 +92,10 @@ Currently the biggest limitation of this plugin is the fact that the parameters 
 
 > Note: I recommend using the `metagen` shortcode for `HTML` pages that don't rely on data from front matter, global data or eleventyComputed in the `<head>`. One example of the current limitations occur when using [Pagination](https://www.11ty.dev/docs/pagination/). 
 
-Since the pages are being generated from a single layout or template file with Pagination, I use `<meta property="og:url" content="{{ page.url }}">` to provide the correct URL even if the filename changes. This is a clear example of where you would keep the `<meta>` tags that need template variable data `{{ data }}` and use `metagen` for any remaining tags until this functionality is supported.
+Since the pages are being generated from a single layout or template file with Pagination, I use `<meta property="og:url" content="https://someurl.com{{ page.url }}">` to provide the correct URL even if the filename changes. This is a clear example of where you would keep the `<meta>` tags that need template variable data `{{ data }}` and use `metagen` for any remaining tags until this functionality is supported.
 
 ## Maintainers
-@tannerdolby
+[@tannerdolby](https://github.com/tannerdolby)
 
 ## Other Meta tag generators
 - [eleventy-plugin-meta-generator](https://github.com/Ryuno-Ki/eleventy-plugin-meta-generator)
