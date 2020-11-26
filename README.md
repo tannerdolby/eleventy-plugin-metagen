@@ -86,8 +86,6 @@ Using `{% metagen %}` without any arguments will throw `Error: No data was added
 
 ## TODO
 - [ ] Figure out how to use template variables as parameters to the shortcode, I tried pairedShortCode but need to investigate more.
-- [ ] Use Open Graph API with `eleventy-cache-assets` to cache the `url` request and make sure output is correct for meta tags.
-- [ ] Maybe add a few more meta tags that are commonly used and not included in the shortcode output
 
 ## Limitations
 Currently the biggest limitation of this plugin is the fact that the parameters passed into the shortcode `metagen` will have to be user input strings. Passing template variables such as `{{ var }}` as parameters to `metagen` is not yet supported. If you want to use data from eleventy front matter data, global data and things like `{{ page.url }}`. You must wait until its supported.
