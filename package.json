@@ -20,6 +20,7 @@
   },
   "keywords": [
     "eleventy",
+    "eleventy-plugin",
     "11ty",
     "metatag",
     "metadata",
@@ -27,7 +28,7 @@
   ],
   "author": {
     "name": "Tanner Dolby",
-    "email": "dolb.tanner@gmail.com",
+    "email": "tannercdolby@gmail.com",
     "url": "https://tannerdolby.com"
   },
   "license": "MIT",
