@@ -94,17 +94,20 @@ desc: Some description
 metadata:
   title: Some other title
   desc: Some other description
-url: https://11ty.dev/
-twitter: "@eleven_ty"
+url: https://tannerdolby.com
+image: https://tannerdolby.com/images/arch-spiral-large.jpg
+alt: Archimedian spiral
+twitter: "@tannerdolby"
+name: Tanner Dolby
 ---
 {% metagen
     title=title or metadata.title,
     desc=desc or metadata.desc,
     url=url + page.url,
-    img=page.image,
-    img_alt="Logo",
+    img=image,
+    img_alt=alt,
     twitterHandle=twitter,
-    name="Eleventy"
+    name=name
 %}
 ```
 As a general rule, don't forget your in a templating engine context, so use your variables in the shortcode as you would inside `{% %}` tags or `{{ }}`.
