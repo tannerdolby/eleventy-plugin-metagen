@@ -21,8 +21,8 @@ module.exports = (eleventyConfig) => {
 ## What does it do?
 The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) like this:
 
-```html
-{% metagen 
+```nunjucks
+{% metagen
     title="Eleventy Plugin Add Meta Tags",
     desc="An eleventy shortcode for generating meta tags.",
     url="https://tannerdolby.com",
@@ -35,24 +35,24 @@ The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) like t
 into `<meta>` tags and other document metadata like this:
 
 ```html
-<meta charset="utf-8"> 
-<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-<meta name="viewport" content="width=device-width initial-scale=1"> 
-<title>Eleventy Plugin Add Meta Tags</title> 
-<meta name="author" content="Tanner Dolby"> 
-<meta name="description" content="An eleventy shortcode for generating meta tags."> 
-<meta property="og:title" content="Eleventy Plugin Add Meta Tags"> 
-<meta property="og:type" content="website"> 
-<meta property="og:description" content="An eleventy shortcode for generating meta tags."> 
-<meta property="og:url" content="https://tannerdolby.com"> 
-<meta property="og:img" content="https://tannerdolby.com/images/arch-spiral-large.jpg"> 
-<meta property="og:img:alt" content="Archimedean Spiral"> 
-<meta name="twitter:card" content="summary"> 
-<meta name="twitter:site" content="@tannerdolby"> 
-<meta name="twitter:title" content="Eleventy Plugin Add Meta Tags"> 
-<meta name="twitter:description" content="An eleventy shortcode for generating meta tags."> 
-<meta name="twitter:image" content="https://tannerdolby.com/images/arch-spiral-large.jpg"> 
-<meta name="twitter:image:alt" content="Archimedean Spiral"> 
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width initial-scale=1">
+<title>Eleventy Plugin Add Meta Tags</title>
+<meta name="author" content="Tanner Dolby">
+<meta name="description" content="An eleventy shortcode for generating meta tags.">
+<meta property="og:title" content="Eleventy Plugin Add Meta Tags">
+<meta property="og:type" content="website">
+<meta property="og:description" content="An eleventy shortcode for generating meta tags.">
+<meta property="og:url" content="https://tannerdolby.com">
+<meta property="og:image" content="https://tannerdolby.com/images/arch-spiral-large.jpg">
+<meta property="og:image:alt" content="Archimedean Spiral">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@tannerdolby">
+<meta name="twitter:title" content="Eleventy Plugin Add Meta Tags">
+<meta name="twitter:description" content="An eleventy shortcode for generating meta tags.">
+<meta name="twitter:image" content="https://tannerdolby.com/images/arch-spiral-large.jpg">
+<meta name="twitter:image:alt" content="Archimedean Spiral">
 <link rel="canonical" href="https://tannerdolby.com">
 ```
 
@@ -65,15 +65,15 @@ Only the arguments you provide data for will be generated as `<meta>` tags. This
 
 If data is provided to `metagen`, the default tags aside from the main Open Graph and Twitter card data are:
 
-```
-<meta charset="utf-8"> 
-<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-<meta name="viewport" content="width=device-width initial-scale=1"> 
-<title></title> 
+```html
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width initial-scale=1">
+<title></title>
 <meta name="author" content="">
 <meta name="description" content="">
-<meta property="og:type" content="website"> 
-<meta name="twitter:card" content="summary"> 
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
 ```
 
 The `title` parameter also provides data for `<title>`. If `title` is not defined within `metagen` the `<title>` element will not be generated with the above default tags. The same rules apply for `name` and `desc`.
@@ -84,15 +84,20 @@ Using `{% metagen %}` without any arguments will throw `Error: No data was added
 - [Open Graph](https://ogp.me/)
 - [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup)
 
-## TODO
-- [ ] Add support for template variables as arguments to the shortcode.
-
-## Limitations
-Currently the biggest limitation of this plugin is the fact that the parameters passed into the shortcode `metagen` will have to be user input strings. Passing template variables such as `{{ var }}` as parameters to `metagen` is not yet supported. If you want to use data from eleventy front matter data, global data and things like `{{ page.url }}`. You must wait until its supported.
-
-> Note: I recommend using the `metagen` shortcode for `HTML` pages that don't rely on data from front matter, global data or eleventyComputed in the `<head>`. One example of the current limitations occur when using [Pagination](https://www.11ty.dev/docs/pagination/). 
-
-Since the pages are being generated from a single layout or template file with Pagination, I use `<meta property="og:url" content="https://someurl.com{{ page.url }}">` to provide the correct URL even if the filename changes. This is a clear example of where you would keep the `<meta>` tags that need template variable data `{{ data }}` and use `metagen` for any remaining tags until this functionality is supported.
+## Use your data
+To make your metadata dynamic, your can use your template data as argument to the short code, without quotes or braces:
+```nunjucks
+{% metagen
+    title=title or metadata.title,
+    desc=description or metadata.description,
+    url="https://11ty.dev/" + page.url,
+    img=page.image,
+    img_alt="Logo",
+    twitterHandle="@eleven_ty",
+    name="Eleventy"
+%}
+```
+As a general rule, don't forget your in your templating engine context, so use your variables as you would inside `{% %}` tag (and that's actually the case :wink:)
 
 ## Maintainers
 [@tannerdolby](https://github.com/tannerdolby)
