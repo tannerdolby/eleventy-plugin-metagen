@@ -96,7 +96,7 @@ metadata:
   desc: Some other description
 url: https://tannerdolby.com
 image: https://tannerdolby.com/images/arch-spiral-large.jpg
-alt: Archimedian spiral
+alt: Archimedean spiral
 twitter: "@tannerdolby"
 name: Tanner Dolby
 ---
