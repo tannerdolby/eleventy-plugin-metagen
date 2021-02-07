@@ -57,9 +57,9 @@ into `<meta>` tags and other document metadata like this:
 ```
 
 ### Custom Usage
-Providing all seven comma separated arguments to `metagen` is recommended until there is support for template variables to be parameters in the `metagen` shortcode. You might only need a few meta tags instead of the whole set, simply use the arguments you need and the ones not included won't generate `<meta>` tags.
+Providing all seven comma separated arguments to `metagen` is recommended. You might only need a few `<meta>` tags instead of the whole set, simply provide the arguments you need and the ones not included won't generate `<meta>` tags.
 
-Only the arguments you provide data for will be generated as `<meta>` tags. This allows you to include some of your own tags alongside `metagen` that use data from other sources, such as `<meta property="og:title" content="{{ page.url }}>"`.
+Only the arguments you provide data for will be generated as `<meta>` tags. This allows you to include some of your own tags alongside `metagen` that use data from other sources, such as `<meta property="og:title" content="{{ page.url }}>"`. The following template variable can be used in the shortcodes parameter without the curly braces or quotes like `title=page.url`. More on template variable usage [below](https://github.com/tannerdolby/eleventy-plugin-metagen#use-your-data).
 
 ## Shortcode Options
 
@@ -80,24 +80,33 @@ The `title` parameter also provides data for `<title>`. If `title` is not define
 
 Using `{% metagen %}` without any arguments will throw `Error: No data was added into the meta generator` and return an empty string.
 
-### Meta Tag Reference
-- [Open Graph](https://ogp.me/)
-- [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup)
-
 ## Use your data
-To make your metadata dynamic, your can use your template data as argument to the short code, without quotes or braces:
+To make your metadata dynamic, your can use your template data as arguments to the short code, without quotes or braces:
 ```nunjucks
+---
+title: Some title
+desc: Some description
+metadata:
+  title: Some other title
+  desc: Some description
+url: https://11ty.dev/
+twitter: "@eleven_ty"
+---
 {% metagen
     title=title or metadata.title,
-    desc=description or metadata.description,
-    url="https://11ty.dev/" + page.url,
+    desc=desc or metadata.desc,
+    url=url+ page.url,
     img=page.image,
     img_alt="Logo",
-    twitterHandle="@eleven_ty",
+    twitterHandle=twitter,
     name="Eleventy"
 %}
 ```
-As a general rule, don't forget your in your templating engine context, so use your variables as you would inside `{% %}` tag (and that's actually the case :wink:)
+As a general rule, don't forget your in a templating engine context, so use your variables in the shortcode as you would inside `{% %}` tags or `{{ }}`.
+
+### Meta Tag Reference
+- [Open Graph](https://ogp.me/)
+- [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup)
 
 ## Maintainers
 [@tannerdolby](https://github.com/tannerdolby)
