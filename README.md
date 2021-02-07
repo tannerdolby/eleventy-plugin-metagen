@@ -100,7 +100,7 @@ twitter: "@eleven_ty"
 {% metagen
     title=title or metadata.title,
     desc=desc or metadata.desc,
-    url=url+ page.url,
+    url=url + page.url,
     img=page.image,
     img_alt="Logo",
     twitterHandle=twitter,
