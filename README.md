@@ -80,15 +80,20 @@ The `title` parameter also provides data for `<title>`. If `title` is not define
 
 Using `{% metagen %}` without any arguments will throw `Error: No data was added into the meta generator` and return an empty string.
 
-## Use your data
-To make your metadata dynamic, your can use your template data as arguments to the short code, without quotes or braces:
+### Meta Tag Reference
+- [Open Graph](https://ogp.me/)
+- [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup)
+
+## Use Your Template Data
+To make your metadata dynamic, you can use template data as arguments to the short code, without quotes or braces:
+
 ```nunjucks
 ---
 title: Some title
 desc: Some description
 metadata:
   title: Some other title
-  desc: Some description
+  desc: Some other description
 url: https://11ty.dev/
 twitter: "@eleven_ty"
 ---
@@ -103,10 +108,6 @@ twitter: "@eleven_ty"
 %}
 ```
 As a general rule, don't forget your in a templating engine context, so use your variables in the shortcode as you would inside `{% %}` tags or `{{ }}`.
-
-### Meta Tag Reference
-- [Open Graph](https://ogp.me/)
-- [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup)
 
 ## Maintainers
 [@tannerdolby](https://github.com/tannerdolby)
