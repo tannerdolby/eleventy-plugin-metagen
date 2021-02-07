@@ -12,8 +12,8 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                     <meta property="og:type" content="website">
                     <meta property="og:description" content="${data.desc}">
                     <meta property="og:url" content="${data.url}">
-                    <meta property="og:img" content="${data.img}">
-                    <meta property="og:img:alt" content="${data.img_alt}">\n`.replace(/^\s+/gm, "");
+                    <meta property="og:image" content="${data.img}">
+                    <meta property="og:image:alt" content="${data.img_alt}">\n`.replace(/^\s+/gm, "");
                 const twitterCard = `<meta name="twitter:card" content="summary">
                     <meta name="twitter:site" content="${data.twitterHandle}">
                     <meta name="twitter:title" content="${data.title}">
@@ -22,15 +22,15 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                     <meta name="twitter:image:alt" content="${data.img_alt}">\n`.replace(/^\s+/gm, "");
                 const canonical = `<link rel="canonical" href="${data.url}">`;
 
-                // if all the arguments aren't used, thats ok! 
+                // if all the arguments aren't used, thats ok!
                 // until template variables can be passed into metagen as arguments this must exist
-                
+
                 /**
-                 * Splits a template literal string into an array of substrings 
+                 * Splits a template literal string into an array of substrings
                  * representing document metadata tags.
-                 * 
+                 *
                  * @param {String} templateLiteral The template literal string.
-                 * @returns {Array} The array of words, ie all tags 
+                 * @returns {Array} The array of words, ie all tags
                  */
                 function makeArray(templateLiteral) {
                     return templateLiteral.split("\n");
@@ -39,7 +39,7 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                 /**
                  * Returns a filtered array that removes
                  * any meta tags with content="undefined"
-                 * 
+                 *
                  * @param {Array} literalArr The array of meta tags.
                  * @returns {Array} The filtered array.
                  */
