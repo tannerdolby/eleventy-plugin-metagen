@@ -59,7 +59,7 @@ into `<meta>` tags and other document metadata like this:
 ### Custom Usage
 Providing all seven comma separated arguments to `metagen` is recommended. You might only need a few `<meta>` tags instead of the whole set, simply provide the arguments you need and the ones not included won't generate `<meta>` tags.
 
-Only the arguments you provide data for will be generated as `<meta>` tags. This allows you to include some of your own tags alongside `metagen` that use data from other sources, such as `<meta property="og:title" content="{{ page.url }}>"`. The following template variable can be used in the shortcodes parameter without the curly braces or quotes like `title=page.url`. More on template variable usage [below](https://github.com/tannerdolby/eleventy-plugin-metagen#use-your-data).
+Only the arguments you provide data for will be generated as `<meta>` tags. This allows you to include some of your own tags alongside `metagen` that use data from other sources, such as `<meta property="og:title" content="{{ page.url }}>"`. The following template variable can be used in the shortcodes parameter without the curly braces or quotes like `title=page.url`. More on template variable usage [below](https://github.com/tannerdolby/eleventy-plugin-metagen#use-your-template-data).
 
 ## Shortcode Options
 
