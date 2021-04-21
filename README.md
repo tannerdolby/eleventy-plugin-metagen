@@ -145,7 +145,7 @@ data:
     img: https://tannerdolby.com/images/arch-spiral-large.jpg
     img_alt: Archimedean Spiral
     twitter_card_type: summary_large_image
-    twitter_handle: 'tannerdolby'
+    twitter_handle: tannerdolby
     name: Tanner Dolby
 ---
 <head>
@@ -169,7 +169,7 @@ into `<meta>` tags and document metadata like this:
 <meta property="og:image" content="https://tannerdolby.com/images/arch-spiral-large.jpg">
 <meta property="og:image:alt" content="Archimedean Spiral">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="tannerdolby">
+<meta name="twitter:site" content="@tannerdolby">
 <meta name="twitter:title" content="Eleventy Plugin Add Meta Tags">
 <meta name="twitter:description" content="An eleventy shortcode for generating meta tags.">
 <meta name="twitter:image" content="https://tannerdolby.com/images/arch-spiral-large.jpg">
