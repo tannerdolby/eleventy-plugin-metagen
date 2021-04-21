@@ -22,15 +22,14 @@ module.exports = (eleventyConfig) => {
 The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) like this:
 
 ```nunjucks
-<!-- Nunjucks usage-->
 {% metagen
     title="Eleventy Plugin Add Meta Tags",
     desc="An eleventy shortcode for generating meta tags.",
     url="https://tannerdolby.com",
     img="https://tannerdolby.com/images/arch-spiral-large.jpg",
     img_alt="Archimedean Spiral",
-    twitter_card_type="summary_large-image",
-    twitter_handle="@tannerdolby",
+    twitter_card_type="summary_large_image",
+    twitter_handle="tannerdolby",
     name="Tanner Dolby"
 %}
 ```
@@ -95,7 +94,7 @@ data:
     img: https://tannerdolby.com/images/arch-spiral-large.jpg
     img_alt: Archimedean Spiral
     twitter_card_type: summary_large_image
-    twitter_handle: 'tannerdolby'
+    twitter_handle: tannerdolby
     name: Tanner Dolby
 ---
 
@@ -108,7 +107,6 @@ data:
 To make your metadata dynamic, you can use template data as arguments to the shortcode, without quotes or braces:
 
 ```nunjucks
-<!-- Nunjucks usage -->
 ---
 title: Some title
 desc: Some description
