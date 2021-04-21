@@ -97,7 +97,6 @@ data:
     twitter_handle: tannerdolby
     name: Tanner Dolby
 ---
-
 <head>
   {% metagen data %}
 </head>
@@ -116,7 +115,8 @@ metadata:
 url: https://tannerdolby.com
 image: https://tannerdolby.com/images/arch-spiral-large.jpg
 alt: Archimedean spiral
-twitter: "@tannerdolby"
+type: summary_large_image 
+twitter: tannerdolby
 name: Tanner Dolby
 ---
 {% metagen
@@ -125,11 +125,12 @@ name: Tanner Dolby
     url=url + page.url,
     img=image,
     img_alt=alt,
-    twitterHandle=twitter,
+    twitter_card_type=type,
+    twitter_handle=twitter,
     name=name
 %}
 ```
-As a general rule, don't forget your in a templating engine context. Use your variables in the shortcode as you would inside `{% var %}` tags or `{{ var }}`.
+As a general rule, don't forget your in a templating engine context. Use your variables in the shortcode as you would inside `{% var %}` tags or `{{ var }}` without the curly braces like `title=var`.
 
 ### Liquid Usage
 
@@ -147,7 +148,6 @@ data:
     twitter_handle: 'tannerdolby'
     name: Tanner Dolby
 ---
-
 <head>
   {% metagen data %}
 </head>
@@ -177,7 +177,7 @@ into `<meta>` tags and document metadata like this:
 <link rel="canonical" href="https://tannerdolby.com">
 ```
 
-The Liquid usage is a bit different as the shortcode expects a single parameter representing an object with key/value pairs. You can define the object in front matter like I've shown above, or you could define the metadata object in global data to pull into the template.
+The Liquid usage is a bit different as the shortcode expects a single parameter representing an object with key/value pairs. You can define the object in front matter like shown above or with global data files.
 
 ### Meta Tag Reference
 - [Open Graph](https://ogp.me/)
