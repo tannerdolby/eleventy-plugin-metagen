@@ -15,7 +15,7 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                     <meta property="og:image" content="${data.img}">
                     <meta property="og:image:alt" content="${data.img_alt}">\n`.replace(/^\s+/gm, "");
                 const twitterCard = `<meta name="twitter:card" content="${data.twitter_card_type ? data.twitter_card_type : 'summary'}">
-                    <meta name="twitter:site" content="${data.twitter_handle}">
+                    <meta name="twitter:site" content="@${data.twitter_handle}">
                     <meta name="twitter:title" content="${data.title}">
                     <meta name="twitter:description" content="${data.desc}">
                     <meta name="twitter:image" content="${data.img}">
