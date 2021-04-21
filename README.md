@@ -83,7 +83,7 @@ Using `{% metagen %}` without any arguments will throw `Error: No data was added
 
 ## Shorthand Nunjucks Usage
 
-To turn the shortcode into a one-liner, you can define an object with the required key/value pairs and supply the shortcode with a single parameter. 
+To turn the shortcode into a one-liner, you can define an object in front matter, global data or another data source with the required key/value pairs and supply the shortcode with a single parameter. 
 
 ```nunjucks
 ---
