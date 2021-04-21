@@ -60,7 +60,7 @@ into `<meta>` tags and other document metadata like this:
 ### Custom Usage
 Providing all eight comma separated arguments to `metagen` is recommended. You might only need a few `<meta>` tags instead of the whole set, simply provide the arguments you need and the ones not included won't generate `<meta>` tags.
 
-Besides the default generated `<meta>` tags, only the arguments you provide data for will be generated as `<meta>` tags. This allows you to include some of your own tags alongside `metagen` if you need. Template variables can be used in the Nunjucks and Liquid shortcode parameters without the curly braces or quotes like `title=page.url` (Nunjucks) or `title` (Liquid). More on template variable usage [below](https://github.com/tannerdolby/eleventy-plugin-metagen#use-your-template-data).
+Besides the default generated `<meta>` tags, only the arguments you provide data for will be generated as `<meta>` tags. This allows you to include some of your own tags alongside `metagen` if you need. Template variables can be used in the Nunjucks and Liquid shortcode arguments without the curly braces or quotes like `title=page.url` (Nunjucks) or `title` (Liquid). More on template variable usage [below](https://github.com/tannerdolby/eleventy-plugin-metagen#use-your-template-data).
 
 ## Shortcode Options
 
@@ -77,7 +77,7 @@ If atleast one parameter is provided to `metagen`, the default tags aside from t
 <meta name="twitter:card" content="summary">
 ```
 
-The `title` parameter provides data for `<title>`. If `title` is not defined within `metagen`, the `<title>` element will not be generated with the above default tags. The same rules apply for `name` and `desc`. All other parameters if omitted, will not have meta tags generated.
+The `title` parameter provides data for `<title>`. If `title` is not defined within `metagen`, the `<title>` element will not be generated with the above default tags. The same rules apply for `name` and `desc`. All other arguments if omitted, will not have meta tags generated.
 
 Using `{% metagen %}` without any arguments will throw `Error: No data was added into the meta generator` and return an empty string.
 
