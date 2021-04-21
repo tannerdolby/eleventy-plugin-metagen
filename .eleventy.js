@@ -14,16 +14,13 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                     <meta property="og:url" content="${data.url}">
                     <meta property="og:image" content="${data.img}">
                     <meta property="og:image:alt" content="${data.img_alt}">\n`.replace(/^\s+/gm, "");
-                const twitterCard = `<meta name="twitter:card" content="summary">
-                    <meta name="twitter:site" content="${data.twitterHandle}">
+                const twitterCard = `<meta name="twitter:card" content="${data.twitter_card_type ? data.twitter_card_type : 'summary'}">
+                    <meta name="twitter:site" content="${data.twitter_handle}">
                     <meta name="twitter:title" content="${data.title}">
                     <meta name="twitter:description" content="${data.desc}">
                     <meta name="twitter:image" content="${data.img}">
                     <meta name="twitter:image:alt" content="${data.img_alt}">\n`.replace(/^\s+/gm, "");
                 const canonical = `<link rel="canonical" href="${data.url}">`;
-
-                // if all the arguments aren't used, thats ok!
-                // until template variables can be passed into metagen as arguments this must exist
 
                 /**
                  * Splits a template literal string into an array of substrings
@@ -63,7 +60,6 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                 const cleanOutput = format(validTags);
 
                 return cleanOutput;
-
             } else {
                 console.log("Error: No data was added into the meta generator")
                 return "";
