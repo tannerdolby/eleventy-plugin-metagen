@@ -177,7 +177,7 @@ into `<meta>` tags and document metadata like this:
 <link rel="canonical" href="https://tannerdolby.com">
 ```
 
-The Liquid usage is a bit different as the shortcode expects a single parameter representing an object with key/value pairs. You can define the object in front matter like shown above or with global data files.
+The Liquid usage is a bit different as the shortcode expects a single parameter representing an object with key/value pairs. You can define the object in front matter like shown above or within global data files.
 
 ### Meta Tag Reference
 - [Open Graph](https://ogp.me/)
