@@ -30,7 +30,7 @@ The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) like t
     img="https://tannerdolby.com/images/arch-spiral-large.jpg",
     img_alt="Archimedean Spiral",
     twitter_card_type="summary_large-image",
-    twitterHandle="@tannerdolby",
+    twitter_handle="@tannerdolby",
     name="Tanner Dolby"
 %}
 ```
