@@ -64,11 +64,11 @@ into `<meta>` tags and other document metadata like this:
 ```
 
 ### Custom Usage
-Providing all of the comma separated arguments to `metagen` shown in the example usage above is recommended. You might only need a few `<meta>` tags instead of the whole set, simply provide the arguments you need and the ones not included won't generate `<meta>` tags.
+For a baseline social share functionality, providing all of the comma separated arguments to `metagen` shown in the example usage above is recommended. If you want to add more tags not listen in the example, see You might only need a few `<meta>` tags instead of the whole set, simply provide the arguments you need and the ones not included won't generate `<meta>` tags.
 
 Besides the default generated `<meta>` tags, only the arguments you provide data for will be generated as `<meta>` tags. This allows you to include some of your own tags alongside `metagen` if you need. Template variables can be used in the Nunjucks and Liquid shortcode arguments without the curly braces or quotes like `title=page.url` (Nunjucks) or `title` (Liquid). More on template variable usage [below](https://github.com/tannerdolby/eleventy-plugin-metagen#use-your-template-data).
 
-## Shortcode Options
+## Shortcode Default
 
 If atleast one parameter is provided to `metagen`:
 
@@ -169,7 +169,8 @@ data:
 
 The Liquid usage is a bit different as the shortcode expects a single parameter representing an object with key/value pairs. You can define the object in frontmatter like shown above or within global data files.
 
-### Config
+### Parameter Config
+
 | Parameter | Type | Desc |
 |-----------|------|------|
 | twitter_card_type | `String` default: 'summary' | The content for `twitter:card`. |
@@ -179,8 +180,8 @@ The Liquid usage is a bit different as the shortcode expects a single parameter 
 | url | `String` | The content for `twitter:url` and `og:url`. |
 | img | `String` | The content for `twitter:image` and `og:image`. |
 | img_alt | `String` | The content for `twitter:image:alt` and `og:image:alt`. |
-| img_width | `Number` | The content for `og:image:width`. |
-| img_height | `Number` | The content for `og:image:height`. |
+| img_width | `Number` or `String` | The content for `og:image:width`. |
+| img_height | `Number` or `String` | The content for `og:image:height`. |
 | twitter_handle | `String` | The content for `twitter:site` or `twitter:creator` if the card type is `summary_large_image`. |
 | creator_handle | `String` | The content for `twitter:creator`. This tag is used if the `twitter_card_type` is `summary_large_image`. |
 | site_name | `String` | The content for `og:site_name`. |
@@ -188,6 +189,7 @@ The Liquid usage is a bit different as the shortcode expects a single parameter 
 | comments | `Boolean` default: `false` | Display default comments for the Open Graph and Twitter tags. |
 | og_comment | `String` requires: `comments=true` | Display a custom comment for the Open Graph set of tags. |
 | twitter_comment | `String` requires: `comments=true` | Display a custom comment for the Twitter set of tags. |
+| attr_name | `String` default: 'name' | Define the attribute name for the set of Twitter meta tags. Options are 'property' or the default 'name'.
 
 ### Meta Tag Reference
 Most all of the `<meta>` tags found in the documentation below are supported by this plugin. If there is a `<meta>` tag that you need and isn't supported, feel free to open an issue so we can get it added. 
