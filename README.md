@@ -66,55 +66,7 @@ into `<meta>` tags and other document metadata like this:
 ### Custom Usage
 For a baseline social share functionality, providing all of the comma separated arguments to `metagen` shown in the example usage above is recommended. If you want to add more tags not listen in the example, see You might only need a few `<meta>` tags instead of the whole set, simply provide the arguments you need and the ones not included won't generate `<meta>` tags.
 
-Besides the default generated `<meta>` tags, only the arguments you provide data for will be generated as `<meta>` tags. This allows you to include some of your own tags alongside `metagen` if you need. Template variables can be used in the Nunjucks and Liquid shortcode arguments without the curly braces or quotes like `title=page.url` (Nunjucks) or `title` (Liquid). More on template variable usage [below](https://github.com/tannerdolby/eleventy-plugin-metagen#use-your-template-data).
-
-## Shortcode Default
-
-If atleast one parameter is provided to `metagen`:
-
-```nunjucks
-{% metagen 
-  comments=true
-%}
-```
-
-the default `<meta>` tags aside from the main Open Graph and Twitter card data are:
-
-```html
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:locale" content="en_US">
-<!-- Twitter -->
-<meta name="twitter:card" content="summary">
-```
-
-The `title` parameter provides data for `<title>`. If `title` is not defined within `metagen`, the `<title>` element will not be generated with the above default tags. The same rules apply for `name` and `desc`. All other arguments if omitted, will not have meta tags generated.
-
-Using `{% metagen %}` without any arguments will throw `Error: No data was added into the meta generator` and return an empty string.
-
-## Shorthand Nunjucks Usage
-
-To use the shortcode as a one-liner. You can define an object in frontmatter, global data or another data source with the required key/value pairs and supply the shortcode with a single object parameter. 
-
-```nunjucks
----
-data: 
-    title: Eleventy Plugin Add Meta Tags
-    desc: An eleventy shortcode for generating meta tags.
-    url: https://tannerdolby.com
-    img: https://tannerdolby.com/images/arch-spiral-large.jpg
-    img_alt: Archimedean Spiral
-    twitter_card_type: summary_large_image
-    twitter_handle: tannerdolby
-    name: Tanner Dolby
----
-<head>
-  {% metagen data %}
-</head>
-```
+Besides the default generated `<meta>` tags, only the arguments you provide data for will be generated as `<meta>` tags. This allows you to include some of your own tags alongside `metagen` if you need. Template variables can be used in the Nunjucks and Liquid shortcode arguments without the curly braces or quotes like `title=page.url` (Nunjucks) or `title` (Liquid). See the eleventy-plugin-metagen [documentation](https://metagendocs.netlify.app/) for more details on plugin usage.
 
 ## Use Your Template Data
 To make your metadata dynamic, you can use template data as arguments to the shortcode, without quotes or braces:
@@ -146,53 +98,8 @@ name: Tanner Dolby
 ```
 As a general rule, don't forget your in a templating engine context. Use your variables in the shortcode as you would inside `{% var %}` tags or `{{ var }}` without the curly braces like `title=var`.
 
-### Liquid Usage
-
-If you would like to use Liquid (which is the default templating engine in Eleventy). Then utilize the following syntax, to turn shortcodes like this:
-
-```liquid
----
-data: 
-    title: Eleventy Plugin Add Meta Tags
-    desc: An eleventy shortcode for generating meta tags.
-    url: https://tannerdolby.com
-    img: https://tannerdolby.com/images/arch-spiral-large.jpg
-    img_alt: Archimedean Spiral
-    twitter_card_type: summary_large_image
-    twitter_handle: tannerdolby
-    name: Tanner Dolby
----
-<head>
-  {% metagen data %}
-</head>
-```
-
-The Liquid usage is a bit different as the shortcode expects a single parameter representing an object with key/value pairs. You can define the object in frontmatter like shown above or within global data files.
-
-### Parameter Config
-
-| Parameter | Type | Desc |
-|-----------|------|------|
-| twitter_card_type | `String` default: 'summary' | The content for `twitter:card`. |
-| name | `String` | The content for `<meta name="author">`. |
-| title | `String` | The content for `twitter:title` and `og:title`. |
-| desc | `String` | The content for `twitter:description`, `og:description` and `<meta name="description">`.
-| url | `String` | The content for `twitter:url` and `og:url`. |
-| img | `String` | The content for `twitter:image` and `og:image`. |
-| img_alt | `String` | The content for `twitter:image:alt` and `og:image:alt`. |
-| img_width | `Number` or `String` | The content for `og:image:width`. |
-| img_height | `Number` or `String` | The content for `og:image:height`. |
-| twitter_handle | `String` | The content for `twitter:site` or `twitter:creator` if the card type is `summary_large_image`. |
-| creator_handle | `String` | The content for `twitter:creator`. This tag is used if the `twitter_card_type` is `summary_large_image`. |
-| site_name | `String` | The content for `og:site_name`. |
-| locale | `String` default: 'en_US' | The locale these tags are marked up in. |
-| comments | `Boolean` default: `false` | Display default comments for the Open Graph and Twitter tags. |
-| og_comment | `String` requires: `comments=true` | Display a custom comment for the Open Graph set of tags. |
-| twitter_comment | `String` requires: `comments=true` | Display a custom comment for the Twitter set of tags. |
-| attr_name | `String` default: 'name' | Define the attribute name for the set of Twitter meta tags. Options are 'property' or the default 'name'.
-
 ### Meta Tag Reference
-Most all of the `<meta>` tags found in the documentation below are supported by this plugin. If there is a `<meta>` tag that you need and isn't supported, feel free to open an issue so we can get it added. 
+Most all of the `<meta>` tags found in the documentation below are supported by this plugin. If there is a `<meta>` tag that you need and isn't supported, feel free to open an issue so we can get it added. See [metagen docs](https://metagendocs.netlify.app/) for more information about this plugin.
 
 - [Open Graph](https://ogp.me/)
 - [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup)
