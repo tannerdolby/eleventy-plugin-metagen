@@ -12,17 +12,17 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                     <meta property="og:type" content="website">
                     <meta property="og:locale" content="${isDef(data.locale, 'en_US')}">
                     <meta property="og:title" content="${data.title}">
-                    ${data.site_name ? `<meta property="og:site_name" content="${data.site_name}">` : ''}
+                    <meta property="og:site_name" content="${data.site_name}">
                     <meta property="og:description" content="${data.desc}">
                     <meta property="og:url" content="${data.url}">
                     <meta property="og:image" content="${data.img}">
                     <meta property="og:image:alt" content="${data.img_alt}">
-                    ${data.img_width ? `<meta property="og:image:width" content="${data.img_width}">` : ''}
-                    ${data.img_height ? `<meta property="og:image:height" content="${data.img_height}">` : ''}\n`;
+                    <meta property="og:image:width" content="${data.img_width}">
+                    <meta property="og:image:height" content="${data.img_height}">\n`;
                 const twitterCard = `${data.comments ? `${(data.twitter_comment ? `<!-- ${data.twitter_comment} -->` : '<!-- Twitter -->')}` : ''}
                     <meta ${isDef(data.attr_name, 'name')}="twitter:card" content="${isDef(data.twitter_card_type, 'summary')}">
                     <meta ${isDef(data.attr_name, 'name')}="twitter:site" content="@${data.twitter_handle}">
-                    ${isDef(data.twitter_card_type, "", ["summary_large_image", `<meta name="twitter:creator" content="@${isDef(data.creator_handle, data.twitter_handle)}">`])}
+                    ${isDef(data.twitter_card_type, undefined, ["summary_large_image", `<meta ${isDef(data.attr_name, 'name')}="twitter:creator" content="@${isDef(data.creator_handle, data.twitter_handle)}">`])}
                     <meta ${isDef(data.attr_name, 'name')}="twitter:url" content="${data.url}">
                     <meta ${isDef(data.attr_name, 'name')}="twitter:title" content="${data.title}">
                     <meta ${isDef(data.attr_name, 'name')}="twitter:description" content="${data.desc}">
