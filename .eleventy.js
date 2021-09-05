@@ -11,9 +11,9 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                 const openGraph = `${data.comments ? `${(data.og_comment ? `<!-- ${data.og_comment} -->` : '<!-- Open Graph -->')}` : ''}
                     <meta property="og:type" content="website">
                     <meta property="og:locale" content="${isDef(data.locale, 'en_US')}">
-                    <meta property="og:title" content="${data.title}">
+                    <meta property="og:title" content="${data.og_title || data.title}">
                     <meta property="og:site_name" content="${data.site_name}">
-                    <meta property="og:description" content="${data.desc}">
+                    <meta property="og:description" content="${data.og_desc || data.desc}">
                     <meta property="og:url" content="${data.url}">
                     <meta property="og:image" content="${data.img}">
                     <meta property="og:image:alt" content="${data.img_alt}">
@@ -24,8 +24,8 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                     <meta ${isDef(data.attr_name, 'name')}="twitter:site" content="@${data.twitter_handle}">
                     ${isDef(data.twitter_card_type, undefined, ["summary_large_image", `<meta ${isDef(data.attr_name, 'name')}="twitter:creator" content="@${isDef(data.creator_handle, data.twitter_handle)}">`])}
                     <meta ${isDef(data.attr_name, 'name')}="twitter:url" content="${data.url}">
-                    <meta ${isDef(data.attr_name, 'name')}="twitter:title" content="${data.title}">
-                    <meta ${isDef(data.attr_name, 'name')}="twitter:description" content="${data.desc}">
+                    <meta ${isDef(data.attr_name, 'name')}="twitter:title" content="${data.twitter_title || data.title}">
+                    <meta ${isDef(data.attr_name, 'name')}="twitter:description" content="${data.twitter_desc || data.desc}">
                     <meta ${isDef(data.attr_name, 'name')}="twitter:image" content="${data.img}">
                     <meta ${isDef(data.attr_name, 'name')}="twitter:image:alt" content="${data.img_alt}">\n`;
                 const canonical = `<link rel="canonical" href="${data.url}">`;
