@@ -42,6 +42,7 @@ into `<meta>` tags and other document metadata like this:
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Eleventy Plugin Meta Generator</title>
 <meta name="author" content="Tanner Dolby">
+<meta name="title" content="Eleventy Plugin Meta Generator">
 <meta name="description" content="An eleventy shortcode for generating meta tags.">
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -64,7 +65,7 @@ into `<meta>` tags and other document metadata like this:
 ```
 
 ### Custom Usage
-For a baseline social share functionality, providing all of the comma separated arguments to `metagen` shown in the example usage above is recommended. If you want to add more tags not listen in the example, see You might only need a few `<meta>` tags instead of the whole set, simply provide the arguments you need and the ones not included won't generate `<meta>` tags.
+For a baseline social share functionality, providing all of the comma separated arguments to `metagen` shown in the example usage above is recommended. If you want to add more tags not listed in the example, have a look at the plugin docs. You might only need a few `<meta>` tags instead of the whole set, simply provide the arguments you need and the ones not included won't generate `<meta>` tags.
 
 Besides the default generated `<meta>` tags, only the arguments you provide data for will be generated as `<meta>` tags. This allows you to include some of your own tags alongside `metagen` if you need. Template variables can be used in the Nunjucks and Liquid shortcode arguments without the curly braces or quotes like `title=page.url` (Nunjucks) or `title` (Liquid). See the eleventy-plugin-metagen [documentation](https://metagendocs.netlify.app/) for more details on plugin usage.
 
@@ -96,7 +97,6 @@ name: Tanner Dolby
     name=name
 %}
 ```
-As a general rule, don't forget your in a templating engine context. Use your variables in the shortcode as you would inside `{% var %}` tags or `{{ var }}` without the curly braces like `title=var`.
 
 ### Meta Tag Reference
 Most all of the `<meta>` tags found in the documentation below are supported by this plugin. If there is a `<meta>` tag that you need and isn't supported, feel free to open an issue so we can get it added. See [metagen docs](https://metagendocs.netlify.app/) for more information about this plugin.
