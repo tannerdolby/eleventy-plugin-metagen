@@ -1,6 +1,6 @@
 {
   "name": "eleventy-plugin-metagen",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "An Eleventy shortcode that generates document metadata containing: Open Graph, Twitter card, generic meta tags and a canonical link.",
   "main": ".eleventy.js",
   "publishConfig": {
@@ -13,7 +13,7 @@
   "bugs": {
     "url": "https://github.com/tannerdolby/eleventy-plugin-metagen/issues/"
   },
-  "homepage": "https://github.com/tannerdolby/eleventy-plugin-metagen#readme",
+  "homepage": "https://metagendocs.netlify.app",
   "scripts": {
     "build": "eleventy build",
     "start": "eleventy --serve"
