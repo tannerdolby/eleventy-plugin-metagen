@@ -7,6 +7,7 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                     <meta name="viewport" content="width=device-width, initial-scale=1">
                     <title>${data.title}</title>
                     <meta name="author" content="${data.name}">
+                    <meta name="title" content="${data.title}">
                     <meta name="description" content="${data.desc}">\n`;
                 const openGraph = `${data.comments ? `${(data.og_comment ? `<!-- ${data.og_comment} -->` : '<!-- Open Graph -->')}` : ''}
                     <meta property="og:type" content="website">
