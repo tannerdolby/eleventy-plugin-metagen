@@ -1,5 +1,5 @@
 # eleventy-plugin-metagen
-An Eleventy [shortcode](https://www.11ty.dev/docs/shortcodes/) that generates document metadata containing: Open Graph, Twitter card, generic meta tags and a canonical link.
+An Eleventy [shortcode](https://www.11ty.dev/docs/shortcodes/) that generates document metadata containing: Open Graph, Twitter card, generic meta tags and a canonical link. See [metagen-docs](https://github.com/tannerdolby/metagen-docs) for plugin documentation.
 
 ## Installation
 In your Eleventy project, [install the plugin](https://www.npmjs.com/package/eleventy-plugin-metagen) from npm:
