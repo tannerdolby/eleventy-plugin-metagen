@@ -38,27 +38,13 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                     return prop ? prop : fallback;
                 }
 
-                function makeArray(templateLiteral) {
-                    return templateLiteral.split("\n");
-                }
-
-                function removeEmptyTags(literalArr) {
-                    return literalArr.filter(tag => {
-                        return tag.includes("undefined") === false;
-                    });
-                }
-
-                function format(literalArr) {                  
-                    return literalArr.join("\n").replace(/^\s+|[,]$/gm, "");
-                }
-
-                const output = makeArray(metadata.concat(openGraph, twitterCard, canonical));
-                const validTags = removeEmptyTags(output);
-                const cleanOutput = format(validTags);
+                const output = metadata.concat(openGraph, twitterCard, canonical).split("\n");
+                const validTags = output.filter(tag => tag.includes("undefined") === false);
+                const cleanOutput = validTags.join("\n").replace(/^\s+|[,]$/gm, "");
 
                 return cleanOutput;
             } else {
-                console.log("Error: No data was added into the meta generator")
+                console.error("No data was added into the meta generator")
                 return "";
             }
         });
