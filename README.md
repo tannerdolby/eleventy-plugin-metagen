@@ -64,6 +64,20 @@ into `<meta>` tags and other document metadata like this:
 <link rel="canonical" href="https://tannerdolby.com">
 ```
 
+## Contributing
+If you notice an issue or a missing meta tag for this plugin, please do [open an issue](https://github.com/tannerdolby/eleventy-plugin-metagen/issues) and we will work to resolve it. 
+
+1. Fork this repo
+2. Clone `git clone git@github.com:tannerdolby/eleventy-plugin-metagen.git`
+3. Install dependencies `npm install`
+4. Build `npm run build`
+5. Serve locally `npm run dev`
+
+### Running Tests
+To run the Cypress tests, you can use:
+1. `npm run cypress:open` - Opens the Cypress test launcher
+2. `npm run cypress:dev` - Runs a fresh 11ty build (in case the tests/index.njk file changed) and then opens the Cypress test launcher
+
 ### Custom Usage
 For a baseline social share functionality, providing all of the comma separated arguments to `metagen` shown in the example usage above is recommended. If you want to add more tags not listed in the example, have a look at the plugin docs. You might only need a few `<meta>` tags instead of the whole set, simply provide the arguments you need and the ones not included won't generate `<meta>` tags.
 
