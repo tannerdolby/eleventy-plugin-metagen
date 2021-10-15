@@ -104,7 +104,7 @@ Most all of the `<meta>` tags found in the documentation below are supported by 
 - [Open Graph](https://ogp.me/)
 - [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup)
 
-## Contributing 🌱
+## Contributing
 If you notice an issue or a missing meta tag for this plugin, please do [open an issue](https://github.com/tannerdolby/eleventy-plugin-metagen/issues) and we will work to resolve it. 
 
 1. Fork this repo
