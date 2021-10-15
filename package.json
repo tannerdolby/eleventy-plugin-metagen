@@ -16,7 +16,7 @@
   "homepage": "https://metagendocs.netlify.app",
   "scripts": {
     "build": "eleventy build",
-    "start": "eleventy --serve",
+    "dev": "eleventy --serve",
     "cypress:open": "cypress open",
     "cypress:dev": "npm run build && cypress open"
   },
