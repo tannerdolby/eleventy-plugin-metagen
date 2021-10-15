@@ -78,7 +78,7 @@ To run the Cypress tests, you can use:
 1. `npm run cypress:open` - Opens the Cypress test launcher
 2. `npm run cypress:dev` - Runs a fresh 11ty build (in case the tests/index.njk file changed) and then opens the Cypress test launcher
 
-### Custom Usage
+## Custom Usage
 For a baseline social share functionality, providing all of the comma separated arguments to `metagen` shown in the example usage above is recommended. If you want to add more tags not listed in the example, have a look at the plugin docs. You might only need a few `<meta>` tags instead of the whole set, simply provide the arguments you need and the ones not included won't generate `<meta>` tags.
 
 Besides the default generated `<meta>` tags, only the arguments you provide data for will be generated as `<meta>` tags. This allows you to include some of your own tags alongside `metagen` if you need. Template variables can be used in the Nunjucks and Liquid shortcode arguments without the curly braces or quotes like `title=page.url` (Nunjucks) or `title` (Liquid). See the eleventy-plugin-metagen [documentation](https://metagendocs.netlify.app/) for more details on plugin usage.
