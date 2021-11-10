@@ -17,8 +17,8 @@
   "scripts": {
     "build": "eleventy build",
     "dev": "eleventy --serve",
-    "cypress:open": "cypress open",
-    "cypress:dev": "npm run build && cypress open"
+    "test": "npm run build && cypress run",
+    "test:ui": "npm run build && cypress open"
   },
   "keywords": [
     "eleventy",
