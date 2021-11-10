@@ -117,8 +117,7 @@ If you notice an issue or a missing meta tag for this plugin, please do [open an
 
 ### Running Tests
 To run the Cypress tests, you can use:
-1. `npm run cypress:open` - Opens the Cypress test launcher
-2. `npm run cypress:dev` - Runs a fresh 11ty build (in case the tests/index.njk file changed) and then opens the Cypress test launcher
+- `npm run test`
 
 ## Other Meta tag generators
 - [eleventy-plugin-meta-generator](https://github.com/Ryuno-Ki/eleventy-plugin-meta-generator)
