@@ -10,7 +10,7 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                     <meta name="title" content="${data.title}">
                     <meta name="description" content="${data.desc}">\n`;
                 const openGraph = `${data.comments ? `${(data.og_comment ? `<!-- ${data.og_comment} -->` : '<!-- Open Graph -->')}` : ''}
-                    <meta property="og:type" content="website">
+                    <meta property="og:type" content="${isDef(data.type, 'website')}">
                     <meta property="og:url" content="${data.url}">
                     <meta property="og:site_name" content="${data.site_name}">
                     <meta property="og:locale" content="${isDef(data.locale, 'en_US')}">
