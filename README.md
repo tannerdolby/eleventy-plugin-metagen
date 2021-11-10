@@ -31,6 +31,7 @@ The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) like t
     twitter_card_type="summary_large_image",
     twitter_handle="tannerdolby",
     name="Tanner Dolby",
+    generator="eleventy",
     comments=true
 %}
 ```
@@ -44,6 +45,7 @@ into `<meta>` tags and other document metadata like this:
 <meta name="author" content="Tanner Dolby">
 <meta name="title" content="Eleventy Plugin Meta Generator">
 <meta name="description" content="An eleventy shortcode for generating meta tags.">
+<meta name="generator" content="eleventy">
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
