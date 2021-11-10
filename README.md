@@ -115,9 +115,5 @@ If you notice an issue or a missing meta tag for this plugin, please do [open an
 4. Build `npm run build`
 5. Serve locally `npm run dev`
 
-### Running Tests
-To run the Cypress tests, you can use:
-- `npm run test`
-
 ## Other Meta tag generators
 - [eleventy-plugin-meta-generator](https://github.com/Ryuno-Ki/eleventy-plugin-meta-generator)
