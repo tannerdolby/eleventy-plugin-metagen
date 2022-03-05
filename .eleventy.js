@@ -5,6 +5,7 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                 const metadata = `<meta charset="utf-8">
                     <meta http-equiv="X-UA-Compatible" content="IE=edge">
                     <meta name="viewport" content="width=device-width, initial-scale=1">
+                    ${handleDnsResolution(data)}
                     <title>${data.title}</title>
                     <meta name="author" content="${data.name}">
                     <meta name="title" content="${data.title}">
@@ -37,6 +38,29 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                         return prop == c[0] ? c[1] : fallback
                     }
                     return prop ? prop : fallback;
+                }
+
+                function getDnsTags(data, rel) {
+                    if (typeof data == "string") {
+                        return `<link rel="${rel}" href="${data}">`
+                    } else if (typeof data == "object") {
+                        let tags = "";
+                        data.forEach(link => {
+                           tags += "\n" + `<link rel="${rel}" href="${link}">`;
+                        });
+                        return tags;
+                    }
+                }
+
+                function handleDnsResolution(data) {
+                    let tags = "";
+                    if (data.preconnect) {
+                        tags += "\n" + getDnsTags(data.preconnect, "preconnect");
+                    }
+                    if (data.dns_prefetch) {
+                        tags += "\n" + getDnsTags(data.dns_prefetch, "dns-prefetch");
+                    }
+                    return tags;
                 }
 
                 const output = metadata.concat(openGraph, twitterCard, canonical).split("\n");
