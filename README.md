@@ -1,8 +1,8 @@
 # eleventy-plugin-metagen
-An Eleventy [shortcode](https://www.11ty.dev/docs/shortcodes/) that generates document metadata containing: Open Graph, Twitter card, generic meta tags and a canonical link. See [metagen-docs](https://github.com/tannerdolby/metagen-docs) for plugin documentation.
+An Eleventy [shortcode](https://www.11ty.dev/docs/shortcodes/) that generates document metadata containing: Open Graph, Twitter card, generic meta tags and a canonical link.
 
 ## Installation
-In your Eleventy project, [install the plugin](https://www.npmjs.com/package/eleventy-plugin-metagen) from npm:
+Install the plugin from [npm](https://www.npmjs.com/package/eleventy-plugin-metagen):
 
 ```
 npm install eleventy-plugin-metagen
@@ -69,7 +69,7 @@ into `<meta>` tags and other document metadata like this:
 ## Custom Usage
 For a baseline social share functionality, providing all of the comma separated arguments to `metagen` shown in the example usage above is recommended. If you want to add more tags not listed in the example, have a look at the plugin docs. You might only need a few `<meta>` tags instead of the whole set, simply provide the arguments you need and the ones not included won't generate `<meta>` tags.
 
-Besides the default generated `<meta>` tags, only the arguments you provide data for will be generated as `<meta>` tags. This allows you to include some of your own tags alongside `metagen` if you need. Template variables can be used in the Nunjucks and Liquid shortcode arguments without the curly braces or quotes like `title=page.url` (Nunjucks) or `title` (Liquid). See the eleventy-plugin-metagen [documentation](https://metagendocs.netlify.app/) for more details on plugin usage.
+Besides the default generated `<meta>` tags, only the arguments you provide data for will be generated. This allows you to include some of your own tags alongside `metagen` if you need. Template variables can be used as arguments in the Nunjucks and Liquid shortcode usage without the curly braces or quotes like `title=page.url` (Nunjucks) or `title` (Liquid). See the eleventy-plugin-metagen [documentation](https://metagendocs.netlify.app/) for more details on plugin usage.
 
 ## Use Your Template Data
 To make your metadata dynamic, you can use template data as arguments to the shortcode, without quotes or braces:
