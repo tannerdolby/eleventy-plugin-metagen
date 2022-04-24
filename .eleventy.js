@@ -1,79 +1,74 @@
+const getTag = require("get-tag");
+
 module.exports = (eleventyConfig, pluginNamespace) => {
     eleventyConfig.namespace(pluginNamespace, () => {
         eleventyConfig.addShortcode("metagen", (data) => {
-            if (data) {
-                const metadata = `<meta charset="utf-8">
-                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                    <meta name="viewport" content="width=device-width, initial-scale=1">
-                    ${handleDnsResolution(data)}
-                    <title>${data.title}</title>
-                    <meta name="author" content="${data.name}">
-                    <meta name="title" content="${data.title}">
-                    <meta name="description" content="${data.desc}">
-                    <meta name="robots" content="${data.robots}">
-                    ${handleCustomCrawlers(data)}
-                    <meta name="generator" content="${data.generator}">\n`;
-                const openGraph = `${data.comments ? `${(data.og_comment ? `<!-- ${data.og_comment} -->` : '<!-- Open Graph -->')}` : ''}
-                    <meta property="og:type" content="${getAttr(data.type, 'website')}">
-                    <meta property="og:url" content="${data.url}">
-                    <meta property="og:site_name" content="${data.site_name}">
-                    <meta property="og:locale" content="${getAttr(data.locale, 'en_US')}">
-                    <meta property="og:title" content="${data.og_title || data.title}">
-                    <meta property="og:description" content="${data.og_desc || data.desc}">
-                    <meta property="og:image" content="${data.img}">
-                    <meta property="og:image:alt" content="${data.img_alt}">
-                    <meta property="og:image:width" content="${data.img_width}">
-                    <meta property="og:image:height" content="${data.img_height}">\n`;
-                const twitterCard = `${data.comments ? `${(data.twitter_comment ? `<!-- ${data.twitter_comment} -->` : '<!-- Twitter -->')}` : ''}
-                    <meta ${getAttr(data.attr_name, 'name')}="twitter:card" content="${getAttr(data.twitter_card_type, 'summary')}">
-                    <meta ${getAttr(data.attr_name, 'name')}="twitter:site" content="@${data.twitter_handle}">
-                    ${getAttr(data.twitter_card_type, undefined, ["summary_large_image", `<meta ${getAttr(data.attr_name, 'name')}="twitter:creator" content="@${getAttr(data.creator_handle, data.twitter_handle)}">`])}
-                    <meta ${getAttr(data.attr_name, 'name')}="twitter:url" content="${data.url}">
-                    <meta ${getAttr(data.attr_name, 'name')}="twitter:title" content="${data.twitter_title || data.title}">
-                    <meta ${getAttr(data.attr_name, 'name')}="twitter:description" content="${data.twitter_desc || data.desc}">
-                    <meta ${getAttr(data.attr_name, 'name')}="twitter:image" content="${data.img}">
-                    <meta ${getAttr(data.attr_name, 'name')}="twitter:image:alt" content="${data.img_alt}">\n`;
-                const canonical = `<link rel="canonical" href="${data.url}">`;
+            function get(key, fallback) {
+                return data.hasOwnProperty(key) ? data[key] : fallback;
+            }
 
-                function getAttr(prop, fallback, c=null) {
-                    if (c && typeof c == 'object' && c[0] == 'summary_large_image') {
-                        return prop == c[0] ? c[1] : fallback
-                    }
-                    return prop ? prop : fallback;
-                }
+            function comments(data, field, commentGroup) {
+                return data.comments ? `${(data[field] ? `<!-- ${data[field]} -->` : `<!-- ${commentGroup}-->`)}` : "";
+            }
 
-                function getDnsTags(data, rel) {
-                    if (typeof data == "string") {
-                        return `<link rel="${rel}" href="${data}">`
-                    } else if (typeof data == "object") {
-                        let tags = "";
-                        data.forEach(link => {
-                           tags += "\n" + `<link rel="${rel}" href="${link}">`;
-                        });
-                        return tags;
-                    }
-                }
-
-                function handleCustomCrawlers(data) {
-                    if (data.crawlers && typeof data.crawlers === "object" && data.constructor === Object) {
-                        let tags = "";
-                        for (const key in data.crawlers) {
-                            tags += `\n<meta name="${key}" content="${data.crawlers[key]}">`;
-                        }
-                        return tags;
-                    }
-                }
-
-                function handleDnsResolution(data) {
+            function getDnsTags(data, rel) {
+                if (typeof data == "string") {
+                    return `<link rel="${rel}" href="${data}">`
+                } else if (typeof data == "object" && typeof data.crawlers === "object" && data.constructor === Object) {
                     let tags = "";
-                    if (data.preconnect) tags += "\n" + getDnsTags(data.preconnect, "preconnect");
-                    if (data.dns_prefetch) tags += "\n" + getDnsTags(data.dns_prefetch, "dns-prefetch");
+                    data.forEach(link => tags += `\n<link rel="${rel}" href="${link}">`);
                     return tags;
                 }
+            }
+
+            function handleDnsResolution(data) {
+                let tags = "";
+                if (data.preconnect) tags += "\n" + getDnsTags(data.preconnect, "preconnect");
+                if (data.dns_prefetch) tags += "\n" + getDnsTags(data.dns_prefetch, "dns-prefetch");
+                return tags;
+            }
+
+            function handleCustomCrawlers(data) {
+                if (data.crawlers && typeof data.crawlers === "object" && data.constructor === Object) {
+                    let tags = "";
+                    for (const key in data.crawlers) tags += `\n<meta name="${key}" content="${data.crawlers[key]}">`;
+                    return tags;
+                }
+            }
+
+            if (data) {
+                const openGraphComments = comments(data, "og_comment", "Open Graph");
+                const twitterComments = comments(data, "twitter_comment", "Twitter");
+                const canonical = `\n<link rel="canonical" href="${data.url}">`;
+
+                const metadata = [
+                    [getTag("meta", null, { charset: get("charset", "utf-8") })], [getTag("meta", null, { "http-equiv": "X-UA-Compatible", content: "IE=edge" })],
+                    ["viewport", "width=device-width, initial-scale=1"], [handleDnsResolution(data)], [getTag("title", data.title)], ["author", data.name],
+                    ["title", data.title], ["description", data.desc], ["robots", data.robots], [handleCustomCrawlers(data)], ["generator", data.generator]
+                ].map((tagInfo, i) => {
+                    if ([0, 1, 3, 4, 9].includes(i)) return tagInfo;
+                    return getTag("meta", null, { name: tagInfo[0], content: tagInfo[1] });
+                }).join("\n");
+
+                const openGraph = openGraphComments.concat("\n", [
+                    ["type", get(data.type, 'website')], ["url", data.url], ["site_name", data.site_name], ["locale", get(data.locale, 'en_US')],
+                    ["title", data.og_title || data.title], ["description", data.og_desc || data.desc], ["image", data.img], ["image:alt", data.img_alt],
+                    ["image:width", data.img_width], ["image:height", data.img_height]
+                ].map(tagInfo => {
+                    return getTag("meta", null, { property: `og:${tagInfo[0]}`, content: tagInfo[1] });
+                }).join("\n"));
+
+                const twitterCard = twitterComments.concat("\n", [
+                    ["twitter:card", get("twitter_card_type", "foo")], ["twitter:site", `@${data.twitter_handle}`],
+                    data.twitter_card_type == "summary_large_image" ? ["twitter:creator", `@${get("creator_handle", data.twitter_handle)}`] : "",
+                    ["twitter:url", data.url], ["twitter:title", data.twitter_title || data.title], ["twitter:description", data.twitter_desc || data.desc],
+                    ["twitter:image", data.img], ["twitter:image:alt", data.img_alt]
+                ].map(tagInfo => {
+                    return getTag("meta", null, { [get("attr_name", "name")]: tagInfo[0], content: tagInfo[1] });
+                }).join("\n"));
 
                 const output = metadata.concat(openGraph, twitterCard, canonical).split("\n");
-                const validTags = output.filter(tag => tag.includes("undefined") === false);
-                const cleanOutput = validTags.join("\n").replace(/^\s+|[,]$/gm, "");
+                const cleanOutput = output.filter(Boolean).join("\n").replace(/^\s+|[,]$/gm, "");
 
                 return cleanOutput;
             } else {
@@ -81,5 +76,5 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                 return "";
             }
         });
-   });
+    });
 };
