@@ -101,13 +101,11 @@ name: Tanner Dolby
 ```
 
 ### Meta Tag Reference
-If there is a `<meta>` tag that you need generated and isn't supported, feel free to open an issue so we can get it added.
-
 - [Open Graph](https://ogp.me/)
 - [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup)
 
 ## Contributing
-If you notice an issue or a missing meta tag for this plugin, please do [open an issue](https://github.com/tannerdolby/eleventy-plugin-metagen/issues) and we will work to resolve it. 
+If you notice an issue or there is a `<meta>` tag that you need generated which isn't supported, feel free to [open an issue](https://github.com/tannerdolby/eleventy-plugin-metagen/issues).
 
 1. Fork this repo
 2. Clone `git clone git@github.com:tannerdolby/eleventy-plugin-metagen.git`
