@@ -101,7 +101,7 @@ name: Tanner Dolby
 ```
 
 ### Meta Tag Reference
-Most all of the `<meta>` tags found in the documentation below are supported by this plugin. If there is a `<meta>` tag that you need and isn't supported, feel free to open an issue so we can get it added. See [metagen docs](https://metagendocs.netlify.app/) for more information about this plugin.
+If there is a `<meta>` tag that you need generated and isn't supported, feel free to open an issue so we can get it added.
 
 - [Open Graph](https://ogp.me/)
 - [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup)
