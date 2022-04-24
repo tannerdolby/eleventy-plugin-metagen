@@ -15,7 +15,7 @@
   },
   "homepage": "https://metagendocs.netlify.app",
   "scripts": {
-    "build": "eleventy build",
+    "build": "eleventy",
     "dev": "eleventy --serve",
     "test": "npm run build && cypress run",
     "test:ui": "npm run build && cypress open"
@@ -30,12 +30,12 @@
   ],
   "author": {
     "name": "Tanner Dolby",
-    "email": "tannercdolby@gmail.com",
     "url": "https://tannerdolby.com"
   },
   "license": "MIT",
   "dependencies": {
-    "@11ty/eleventy": "^0.12.1"
+    "@11ty/eleventy": "^1.0.1",
+    "get-tag": "^0.1.2"
   },
   "devDependencies": {
     "cypress": "^8.6.0"
