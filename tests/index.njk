@@ -18,7 +18,7 @@ metadata:
   preconnect: https://foo.com
   dns_prefetch: https://example.com
   og_alternate_locales: ["es", "zh", "ja"]
-  css: [style.css, foo.scss]
+  css: [style.css, foo.css]
   js: [foo.js, [bar.js, async]]
   inline_css: "h1 {color: red}"
   inline_js: "console.log('hello, world');"
@@ -28,7 +28,7 @@ metadata:
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% metagen metadata %}
+  {% metagen metadata %}
 </head>
 <body>
     <h1>Hello</h1>
