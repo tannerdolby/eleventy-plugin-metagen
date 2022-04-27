@@ -20,18 +20,18 @@ metadata:
   og_alternate_locales: ["es", "zh", "ja"]
   css: [style.css, foo.css]
   js: [foo.js, [bar.js, async]]
-  inline_css: "h1 {color: red}"
+  inline_css: "h1 {color: #f06}"
   inline_js: "console.log('hello, world');"
   custom:
-    - ["meta", {foo: bar, content: fizz}]
+    - ["meta", "", {foo: bar, content: fizz}]
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {% metagen metadata %}
+{% metagen metadata %}
 </head>
 <body>
-    <h1>Hello</h1>
-    <p>hi there</p>
+    <h1>Test Fixture</h1>
+    <p>Inspect the page with DevTools and checkout the <code>&lt;head&gt;</code></p>
 </body>
 </html>
