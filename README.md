@@ -35,7 +35,7 @@ The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) like t
     generator="eleventy",
     comments=true,
     css=["style.css", "design.css"],
-    inline_css=".h1 { color: #f06; }",
+    inline_css="h1 { color: #f06; }",
     js=["foo.js", ["bar.js", "async"]],
     inline_js="console.log("hello, world");",
     custom=[["meta", {name: custom-tag, content: foo }]]
@@ -75,7 +75,7 @@ into `<meta>` tags and other document metadata like this:
     <meta name="custom-tag" content="foo">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="design.css">
-	<style>.h1 { color: #f06; }</style>
+	<style>h1 { color: #f06; }</style>
 	<script src="foo.js"></script>
 	<script src="bar.js" async></script>
     <script>console.log('hello, world');</script>
