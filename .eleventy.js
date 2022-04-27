@@ -10,10 +10,10 @@ module.exports = (eleventyConfig, pluginNamespace) => {
 
             function getDnsTags(data, rel) {
                 if (typeof data == "string") {
-                    return `<link rel="${rel}" href="${data}">`
+                    return getTag("link", null, {rel: rel, href: data});
                 } else if (typeof data == "object" && typeof data.crawlers === "object" && data.constructor === Object) {
                     let tags = "";
-                    data.forEach(link => tags += `<link rel="${rel}" href="${link}">`);
+                    data.forEach(link => tags += getTag("link", null, {rel: rel, href: link}));
                     return tags;
                 }
             }
@@ -51,8 +51,7 @@ module.exports = (eleventyConfig, pluginNamespace) => {
             }
 
             if (data) {
-                const canonical = getTag("link", null, {rel: "canonical", href: data.url });
-                let css, js, customTags = "";
+                let canonical, css, js, customTags = "";
                 const metadata = [
                     ["charset", getTag("meta", null, {charset: data.charset || "utf-8"})],
                     ["http-equiv", getTag("meta", null, { "http-equiv": "X-UA-Compatible", content: "IE=edge" })],
@@ -111,13 +110,15 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                     return tagInfo[0] === "comments" ? tagInfo[1] : getTag("meta", null, { [data.attr_name || "name"]: tagInfo[0], content: tagInfo[1] });
                 });
 
+                if (data.url) canonical = getTag("link", null, {rel: "canonical", href: data.url });
                 if (data.css || data.inline_css) css = getStaticAssets([["css", data.css], ["inline-css", data.inline_css]], "css").join("\n");
                 if (data.js || data.inline_js) js = getStaticAssets([["js", data.js], ["inline-js", data.inline_js]], "js").join("\n");
 
                 if (data.custom) {
                     customTags = data.custom.map(item => {
-                        if (item.length === 2) return getTag(item[0], "", item[1]);
-                        if (item.length === 3) return getTag(item[0], item[2], item[1]);
+                        if (item.length < 3) return;
+                        if (item.length === 3) return getTag(item[0], item[1], item[2]);
+                        return getTag(item[0], item[1], item[2], item[3]);
                     }).join("\n\t");
                 }
 
