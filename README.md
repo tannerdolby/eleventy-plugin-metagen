@@ -38,7 +38,7 @@ The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) like t
     inline_css="h1 { color: #f06; }",
     js=["foo.js", ["bar.js", "async"]],
     inline_js="console.log("hello, world");",
-    custom=[["meta", {name: custom-tag, content: foo }]]
+    custom=[["meta", "", {name: custom-tag, content: foo }]]
 %}
 </head>
 ```
