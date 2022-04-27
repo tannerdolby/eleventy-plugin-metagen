@@ -22,6 +22,7 @@ module.exports = (eleventyConfig) => {
 The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) like this:
 
 ```nunjucks
+<head>
 {% metagen
     title="Eleventy Plugin Meta Generator",
     desc="An eleventy shortcode for generating meta tags.",
@@ -32,44 +33,59 @@ The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) like t
     twitter_handle="tannerdolby",
     name="Tanner Dolby",
     generator="eleventy",
-    comments=true
+    comments=true,
+    css=["style.css", "design.css"],
+    inline_css=".h1 { color: #f06; }",
+    js=["foo.js", ["bar.js", "async"]],
+    inline_js="console.log("hello, world");",
+    custom=[["meta", {name: custom-tag, content: foo }]]
 %}
+</head>
 ```
 into `<meta>` tags and other document metadata like this:
 
 ```html
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Eleventy Plugin Meta Generator</title>
-<meta name="author" content="Tanner Dolby">
-<meta name="title" content="Eleventy Plugin Meta Generator">
-<meta name="description" content="An eleventy shortcode for generating meta tags.">
-<meta name="generator" content="eleventy">
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:locale" content="en_US">
-<meta property="og:title" content="Eleventy Plugin Meta Generator">
-<meta property="og:description" content="An eleventy shortcode for generating meta tags.">
-<meta property="og:url" content="https://tannerdolby.com">
-<meta property="og:image" content="https://tannerdolby.com/images/arch-spiral-large.jpg">
-<meta property="og:image:alt" content="Archimedean Spiral">
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@tannerdolby">
-<meta name="twitter:creator" content="@tannerdolby">
-<meta name="twitter:url" content="https://tannerdolby.com">
-<meta name="twitter:title" content="Eleventy Plugin Meta Generator">
-<meta name="twitter:description" content="An eleventy shortcode for generating meta tags.">
-<meta name="twitter:image" content="https://tannerdolby.com/images/arch-spiral-large.jpg">
-<meta name="twitter:image:alt" content="Archimedean Spiral">
-<link rel="canonical" href="https://tannerdolby.com">
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Eleventy Plugin Meta Generator</title>
+	<meta name="author" content="Tanner Dolby">
+	<meta name="title" content="Eleventy Plugin Meta Generator">
+	<meta name="description" content="An eleventy shortcode for generating meta tags.">
+	<meta name="generator" content="eleventy">
+	<!-- Open Graph -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://tannerdolby.com">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:title" content="Eleventy Plugin Meta Generator">
+	<meta property="og:description" content="An eleventy shortcode for generating meta tags.">
+	<meta property="og:image" content="https://tannerdolby.com/images/arch-spiral-large.jpg">
+	<meta property="og:image:alt" content="Archimedean Spiral">
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@tannerdolby">
+	<meta name="twitter:creator" content="@tannerdolby">
+	<meta name="twitter:url" content="https://tannerdolby.com">
+	<meta name="twitter:title" content="Eleventy Plugin Meta Generator">
+	<meta name="twitter:description" content="An eleventy shortcode for generating meta tags.">
+	<meta name="twitter:image" content="https://tannerdolby.com/images/arch-spiral-large.jpg">
+	<meta name="twitter:image:alt" content="Archimedean Spiral">
+    <link rel="canonical" href="https://tannerdolby.com">
+    <meta name="custom-tag" content="foo">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="design.css">
+	<style>.h1 { color: #f06; }</style>
+	<script src="foo.js"></script>
+	<script src="bar.js" async></script>
+    <script>console.log('hello, world');</script>
+</head>
 ```
 
 ## Custom Usage
-For a baseline social share functionality, providing all of the comma separated arguments to `metagen` shown in the example usage above is recommended. If you want to add more tags not listed in the example, have a look at the plugin docs. You might only need a few `<meta>` tags instead of the whole set, simply provide the arguments you need and the ones not included won't generate `<meta>` tags.
+For baseline social share functionality, providing arguments shown in the example usage above is recommended. If you want to add more tags not listed in the example, have a look at the plugin docs. You might only need a few `<meta>` tags instead of the whole set, simply provide the arguments you need and the ones not included won't generate `<meta>` tags.
 
-Besides the default generated `<meta>` tags, only the arguments you provide data for will be generated. This allows you to include some of your own tags alongside `metagen` if you need. Template variables can be used as arguments in Nunjucks and Liquid without the curly braces or quotes like `title=page.url`. See the [documentation](https://metagendocs.netlify.app/) for more details on plugin usage.
+Template variables can be used as arguments in Nunjucks and Liquid without the curly braces or quotes like `title=page.url`. See the [metagen docs](https://metagendocs.netlify.app/) for more details on plugin usage.
 
 ## Use Your Template Data
 To make your metadata dynamic, you can use template data as arguments to the shortcode, without quotes or braces:
@@ -98,6 +114,19 @@ name: Tanner Dolby
     twitter_handle=twitter,
     name=name
 %}
+```
+
+Shorthand syntax:
+
+```njk
+---
+metadata:
+  title: foo bar
+  desc: some desc
+  url: https://tannerdolby.com
+  ...
+---
+{% metagen metadata %}
 ```
 
 ### Meta Tag Reference
