@@ -121,7 +121,7 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                     }).join("\n\t");
                 }
 
-                return [...metadata, ...openGraph, ...twitterCard, canonical, customTags, css, js].join("\n\t");
+                return [...metadata, ...openGraph, ...twitterCard, canonical, customTags, css, js].filter(Boolean).join("\n\t");
             } else {
                 console.error("No data was added into the meta generator")
                 return "";
