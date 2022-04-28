@@ -88,7 +88,7 @@ For baseline social share functionality, providing arguments shown in the exampl
 Template variables can be used as arguments in Nunjucks and Liquid without the curly braces or quotes like `title=page.url`. See the [metagen docs](https://metagendocs.netlify.app/) for more details on plugin usage.
 
 ## Use Your Template Data
-To make your metadata dynamic, you can use template data as arguments to the shortcode, without quotes or braces:
+To make your metadata dynamic, you can use template data as arguments to the shortcode without quotes or braces:
 
 ```nunjucks
 ---
