@@ -35,10 +35,10 @@ The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) like t
     generator="eleventy",
     comments=true,
     css=["style.css", "design.css"],
-    inline_css="h1 { color: #f06; }",
     js=["foo.js", ["bar.js", "async"]],
-    inline_js="console.log("hello, world");",
-    custom=[["meta", "", {name: custom-tag, content: foo }]]
+    inline_css="h1 { color: #f06; }",
+    inline_js="console.log('hello, world');",
+    custom=[["meta", "", {name: "custom", content: "foo" }]]
 %}
 </head>
 ```
@@ -47,38 +47,38 @@ into `<meta>` tags and other document metadata like this:
 ```html
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Eleventy Plugin Meta Generator</title>
-    <meta name="author" content="Tanner Dolby">
-    <meta name="title" content="Eleventy Plugin Meta Generator">
-    <meta name="description" content="An eleventy shortcode for generating meta tags.">
-    <meta name="generator" content="eleventy">
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tannerdolby.com">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:title" content="Eleventy Plugin Meta Generator">
-    <meta property="og:description" content="An eleventy shortcode for generating meta tags.">
-    <meta property="og:image" content="https://tannerdolby.com/images/arch-spiral-large.jpg">
-    <meta property="og:image:alt" content="Archimedean Spiral">
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@tannerdolby">
-    <meta name="twitter:creator" content="@tannerdolby">
-    <meta name="twitter:url" content="https://tannerdolby.com">
-    <meta name="twitter:title" content="Eleventy Plugin Meta Generator">
-    <meta name="twitter:description" content="An eleventy shortcode for generating meta tags.">
-    <meta name="twitter:image" content="https://tannerdolby.com/images/arch-spiral-large.jpg">
-    <meta name="twitter:image:alt" content="Archimedean Spiral">
-    <link rel="canonical" href="https://tannerdolby.com">
-    <meta name="custom-tag" content="foo">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="design.css">
-    <style>h1 { color: #f06; }</style>
-    <script src="foo.js"></script>
-    <script src="bar.js" async></script>
-    <script>console.log('hello, world');</script>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Eleventy Plugin Meta Generator</title>
+	<meta name="author" content="Tanner Dolby">
+	<meta name="title" content="Eleventy Plugin Meta Generator">
+	<meta name="description" content="An eleventy shortcode for generating meta tags.">
+	<meta name="generator" content="eleventy">
+	<!-- Open Graph -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://tannerdolby.com">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:title" content="Eleventy Plugin Meta Generator">
+	<meta property="og:description" content="An eleventy shortcode for generating meta tags.">
+	<meta property="og:image" content="https://tannerdolby.com/images/arch-spiral-large.jpg">
+	<meta property="og:image:alt" content="Archimedean Spiral">
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@tannerdolby">
+	<meta name="twitter:creator" content="@tannerdolby">
+	<meta name="twitter:url" content="https://tannerdolby.com">
+	<meta name="twitter:title" content="Eleventy Plugin Meta Generator">
+	<meta name="twitter:description" content="An eleventy shortcode for generating meta tags.">
+	<meta name="twitter:image" content="https://tannerdolby.com/images/arch-spiral-large.jpg">
+	<meta name="twitter:image:alt" content="Archimedean Spiral">
+	<link rel="canonical" href="https://tannerdolby.com">
+	<meta name="custom" content="foo">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="design.css">
+	<style>h1 { color: #f06; }</style>
+	<script src="foo.js"></script>
+	<script src="bar.js" async></script>
+	<script>console.log('hello, world');</script>
 </head>
 ```
 
