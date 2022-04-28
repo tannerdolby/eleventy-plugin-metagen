@@ -86,7 +86,7 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                     ["og:image:width", data.img_width],
                     ["og:image:height", data.img_height],
                     ["og:image:type", data.og_img_type],
-                    ["og:image:secure_url", data.og_img_url]
+                    ["og:image:secure_url", data.og_secure_img_url || data.og_img_url]
                 ].filter(tagInfo => tagInfo[1]).map(tagInfo => {
                     if (tagInfo[0] == "og:locale:alternate") {
                         return tagInfo[1].map(locale => {
