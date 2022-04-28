@@ -100,7 +100,7 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                     ["comments", comments(data, "twitter-comment", "Twitter")],
                     ["twitter:card", data.twitter_card_type || 'summary'],
                     ["twitter:site", `@${data.twitter_handle}`],
-                    data.twitter_card_type === "summary_large_image" ? ["twitter:creator", `@${data.creator_handle || data.twitter_handle}`] : "",
+                    ["twitter:creator", `@${data.creator_handle || data.twitter_handle}`],
                     ["twitter:url", data.url],
                     ["twitter:title", data.twitter_title || data.title],
                     ["twitter:description", data.twitter_desc || data.desc],
