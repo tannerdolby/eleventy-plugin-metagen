@@ -23,21 +23,21 @@ The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) like t
 
 ```nunjucks
 {% metagen
-	title="Eleventy Plugin Meta Generator",
-	desc="An eleventy shortcode for generating meta tags.",
-	url="https://tannerdolby.com",
-	img="https://tannerdolby.com/images/arch-spiral-large.jpg",
-	img_alt="Archimedean Spiral",
-	twitter_card_type="summary_large_image",
-	twitter_handle="tannerdolby",
-	name="Tanner Dolby",
-	generator="eleventy",
-	comments=true,
-	css=["style.css", "design.css"],
-	js=["foo.js", ["bar.js", "async"]],
-	inline_css="h1 { color: #f06; }",
-	inline_js="console.log('hello, world.');",
-	custom=[["meta", "", {name: "custom", content: "foo" }]]
+  title="Eleventy Plugin Meta Generator",
+  desc="An eleventy shortcode for generating meta tags.",
+  url="https://tannerdolby.com",
+  img="https://tannerdolby.com/images/arch-spiral-large.jpg",
+  img_alt="Archimedean Spiral",
+  twitter_card_type="summary_large_image",
+  twitter_handle="tannerdolby",
+  name="Tanner Dolby",
+  generator="eleventy",
+  comments=true,
+  css=["style.css", "design.css"],
+  js=["foo.js", ["bar.js", "async"]],
+  inline_css="h1 { color: #f06; }",
+  inline_js="console.log('hello, world.');",
+  custom=[["meta", "", {name: "custom", content: "foo" }]]
 %}
 ```
 into `<meta>` tags and other document metadata like this:
