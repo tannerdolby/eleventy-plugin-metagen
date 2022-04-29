@@ -23,40 +23,41 @@ The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) like t
 
 ```nunjucks
 <head>
-{% metagen
-    title="Eleventy Plugin Meta Generator",
-    desc="An eleventy shortcode for generating meta tags.",
-    url="https://tannerdolby.com",
-    img="https://tannerdolby.com/images/arch-spiral-large.jpg",
-    img_alt="Archimedean Spiral",
-    twitter_card_type="summary_large_image",
-    twitter_handle="tannerdolby",
-    name="Tanner Dolby",
-    generator="eleventy",
-    comments=true,
-    css=["style.css", "design.css"],
-    js=["foo.js", ["bar.js", "async"]],
-    inline_css="h1 { color: #f06; }",
-    inline_js="console.log('hello, world.');",
-    custom=[["meta", "", {name: "custom", content: "foo" }]]
-%}
+	{% metagen
+		title="Eleventy Plugin Meta Generator",
+		desc="An eleventy shortcode for generating meta tags.",
+		url="https://tannerdolby.com",
+		img="https://tannerdolby.com/images/arch-spiral-large.jpg",
+		img_alt="Archimedean Spiral",
+		twitter_card_type="summary_large_image",
+		twitter_handle="tannerdolby",
+		name="Tanner Dolby",
+		generator="eleventy",
+		comments=true,
+		css=["style.css", "design.css"],
+		js=["foo.js", ["bar.js", "async"]],
+		inline_css="h1 { color: #f06; }",
+		inline_js="console.log('hello, world.');",
+		custom=[["meta", "", {name: "custom", content: "foo" }]]
+	%}
 </head>
 ```
 into `<meta>` tags and other document metadata like this:
 
 ```html
 <head>
-	
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="preconnect" href="https://foo.com"><link rel="dns-prefetch" href="https://example.com">
+	<link rel="preconnect" href="https://foo.com">
+	<link rel="dns-prefetch" href="https://example.com">
 	<title>Eleventy Plugin Meta Generator</title>
 	<meta name="author" content="Tanner Dolby">
 	<meta name="title" content="Eleventy Plugin Meta Generator">
 	<meta name="description" content="An eleventy shortcode for generating meta tags.">
 	<meta name="robots" content="noindex">
-	<meta name="googlebot" content="noindex"><meta name="googlebot-news" content="nosnippet">
+	<meta name="googlebot" content="noindex">
+	<meta name="googlebot-news" content="nosnippet">
 	<meta name="generator" content="11ty">
 	<!-- Open Graph -->
 	<meta property="og:type" content="website">
