@@ -119,7 +119,6 @@ Shorthand syntax:
 metadata:
   title: foo bar
   desc: some desc
-  url: https://tannerdolby.com
   ...
 ---
 {% metagen metadata %}
