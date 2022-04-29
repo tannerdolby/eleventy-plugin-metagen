@@ -22,73 +22,69 @@ module.exports = (eleventyConfig) => {
 The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) like this:
 
 ```nunjucks
-<head>
-	{% metagen
-		title="Eleventy Plugin Meta Generator",
-		desc="An eleventy shortcode for generating meta tags.",
-		url="https://tannerdolby.com",
-		img="https://tannerdolby.com/images/arch-spiral-large.jpg",
-		img_alt="Archimedean Spiral",
-		twitter_card_type="summary_large_image",
-		twitter_handle="tannerdolby",
-		name="Tanner Dolby",
-		generator="eleventy",
-		comments=true,
-		css=["style.css", "design.css"],
-		js=["foo.js", ["bar.js", "async"]],
-		inline_css="h1 { color: #f06; }",
-		inline_js="console.log('hello, world.');",
-		custom=[["meta", "", {name: "custom", content: "foo" }]]
-	%}
-</head>
+{% metagen
+	title="Eleventy Plugin Meta Generator",
+	desc="An eleventy shortcode for generating meta tags.",
+	url="https://tannerdolby.com",
+	img="https://tannerdolby.com/images/arch-spiral-large.jpg",
+	img_alt="Archimedean Spiral",
+	twitter_card_type="summary_large_image",
+	twitter_handle="tannerdolby",
+	name="Tanner Dolby",
+	generator="eleventy",
+	comments=true,
+	css=["style.css", "design.css"],
+	js=["foo.js", ["bar.js", "async"]],
+	inline_css="h1 { color: #f06; }",
+	inline_js="console.log('hello, world.');",
+	custom=[["meta", "", {name: "custom", content: "foo" }]]
+%}
 ```
 into `<meta>` tags and other document metadata like this:
 
 ```html
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="preconnect" href="https://foo.com">
-	<link rel="dns-prefetch" href="https://example.com">
-	<title>Eleventy Plugin Meta Generator</title>
-	<meta name="author" content="Tanner Dolby">
-	<meta name="title" content="Eleventy Plugin Meta Generator">
-	<meta name="description" content="An eleventy shortcode for generating meta tags.">
-	<meta name="robots" content="noindex">
-	<meta name="googlebot" content="noindex">
-	<meta name="googlebot-news" content="nosnippet">
-	<meta name="generator" content="11ty">
-	<!-- Open Graph -->
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://tannerdolby.com">
-	<meta property="og:site_name" content="Metagen">
-	<meta property="og:locale:alternate" content="es">
-	<meta property="og:locale:alternate" content="zh">
-	<meta property="og:locale:alternate" content="ja">
-	<meta property="og:locale" content="en_US">
-	<meta property="og:title" content="Eleventy Plugin Meta Generator">
-	<meta property="og:description" content="An eleventy shortcode for generating meta tags.">
-	<meta property="og:image" content="https://tannerdolby.com/images/arch-spiral-large.jpg">
-	<meta property="og:image:alt" content="Archimedean Spiral">
-	<!-- Twitter -->
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:site" content="@tannerdolby">
-	<meta name="twitter:creator" content="@tannerdolby">
-	<meta name="twitter:url" content="https://tannerdolby.com">
-	<meta name="twitter:title" content="Eleventy Plugin Meta Generator">
-	<meta name="twitter:description" content="An eleventy shortcode for generating meta tags.">
-	<meta name="twitter:image" content="https://tannerdolby.com/images/arch-spiral-large.jpg">
-	<meta name="twitter:image:alt" content="Archimedean Spiral">
-	<link rel="canonical" href="https://tannerdolby.com">
-	<meta foo="bar" content="fizz">
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="foo.css">
-	<style>h1 {color: #f06}</style>
-	<script src="foo.js"></script>
-	<script src="bar.js" async></script>
-	<script>console.log('hello, world');</script>
-</head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://foo.com">
+<link rel="dns-prefetch" href="https://example.com">
+<title>Eleventy Plugin Meta Generator</title>
+<meta name="author" content="Tanner Dolby">
+<meta name="title" content="Eleventy Plugin Meta Generator">
+<meta name="description" content="An eleventy shortcode for generating meta tags.">
+<meta name="robots" content="noindex">
+<meta name="googlebot" content="noindex">
+<meta name="googlebot-news" content="nosnippet">
+<meta name="generator" content="11ty">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tannerdolby.com">
+<meta property="og:site_name" content="Metagen">
+<meta property="og:locale:alternate" content="es">
+<meta property="og:locale:alternate" content="zh">
+<meta property="og:locale:alternate" content="ja">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Eleventy Plugin Meta Generator">
+<meta property="og:description" content="An eleventy shortcode for generating meta tags.">
+<meta property="og:image" content="https://tannerdolby.com/images/arch-spiral-large.jpg">
+<meta property="og:image:alt" content="Archimedean Spiral">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@tannerdolby">
+<meta name="twitter:creator" content="@tannerdolby">
+<meta name="twitter:url" content="https://tannerdolby.com">
+<meta name="twitter:title" content="Eleventy Plugin Meta Generator">
+<meta name="twitter:description" content="An eleventy shortcode for generating meta tags.">
+<meta name="twitter:image" content="https://tannerdolby.com/images/arch-spiral-large.jpg">
+<meta name="twitter:image:alt" content="Archimedean Spiral">
+<link rel="canonical" href="https://tannerdolby.com">
+<meta foo="bar" content="fizz">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="foo.css">
+<style>h1 {color: #f06}</style>
+<script src="foo.js"></script>
+<script src="bar.js" async></script>
+<script>console.log('hello, world');</script>
 ```
 
 ## Custom Usage
