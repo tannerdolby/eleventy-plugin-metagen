@@ -110,19 +110,20 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                     return tagInfo[0] === "comments" ? tagInfo[1] : getTag("meta", null, { [data.attr_name || "name"]: tagInfo[0], content: tagInfo[1] });
                 });
 
+                if (data.custom) {
+                    customTags = data.custom.map(item => {
+                        if (item.length === 3) return getTag(item[0], item[1], item[2]);
+                        return getTag(item[0], item[1], item[2], item[3]);
+                    }).join("\n");
+                }
+
                 if (data.url) canonical = getTag("link", null, {rel: "canonical", href: data.url });
                 if (data.css || data.inline_css) css = getStaticAssets([["css", data.css], ["inline-css", data.inline_css]], "css").join("\n");
                 if (data.js || data.inline_js) js = getStaticAssets([["js", data.js], ["inline-js", data.inline_js]], "js").join("\n");
 
-                if (data.custom) {
-                    customTags = data.custom.map(item => {
-                        if (item.length < 3) return;
-                        if (item.length === 3) return getTag(item[0], item[1], item[2]);
-                        return getTag(item[0], item[1], item[2], item[3]);
-                    }).join("\n\t");
-                }
-
-                return `\t${[...metadata, ...openGraph, ...twitterCard, canonical, customTags, css, js].filter(Boolean).join("\n\t")}`;
+                const tags = [...metadata, ...openGraph, ...twitterCard, canonical, customTags, css, js].filter(Boolean).join("\n\t");
+                
+                return `\n\t${tags}`;
             } else {
                 console.error("No data was added into the meta generator")
                 return "";
