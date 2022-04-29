@@ -19,17 +19,17 @@ module.exports = (eleventyConfig, pluginNamespace) => {
             }
 
             function handleDnsResolution(data) {
-                let tags = "";
-                if (data.preconnect) tags += getDnsTags(data.preconnect, "preconnect");
-                if (data.dns_prefetch) tags += getDnsTags(data.dns_prefetch, "dns-prefetch");
-                return tags;
+                let tags = [];
+                if (data.preconnect) tags.push(getDnsTags(data.preconnect, "preconnect"));
+                if (data.dns_prefetch) tags.push(getDnsTags(data.dns_prefetch, "dns-prefetch"));
+                return tags.join("\n\t");
             }
 
             function handleCustomCrawlers(data) {
                 if (data.crawlers && typeof data.crawlers === "object" && data.constructor === Object) {
-                    let tags = "";
-                    for (const key in data.crawlers) tags += getTag("meta", null, {name: key, content: data.crawlers[key] });
-                    return tags;
+                    let tags = [];
+                    for (const key in data.crawlers) tags.push(getTag("meta", null, {name: key, content: data.crawlers[key] }));
+                    return tags.join("\n\t");
                 }
             }
 
@@ -121,9 +121,9 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                 if (data.css || data.inline_css) css = getStaticAssets([["css", data.css], ["inline-css", data.inline_css]], "css").join("\n");
                 if (data.js || data.inline_js) js = getStaticAssets([["js", data.js], ["inline-js", data.inline_js]], "js").join("\n");
 
-                const tags = [...metadata, ...openGraph, ...twitterCard, canonical, customTags, css, js].filter(Boolean).join("\n\t");
+                const tags = [...metadata, ...openGraph, ...twitterCard, canonical, customTags, css, js].filter(Boolean);
                 
-                return `\n\t${tags}`;
+                return data.minified ? tags.join("").replace(/[\n|\n\t]/gm, "") : tags.join("\n\t");
             } else {
                 console.error("No data was added into the meta generator")
                 return "";
