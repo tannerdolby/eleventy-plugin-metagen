@@ -60,7 +60,7 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                     ["mainTitle", getTag("title", data.title)],
                     ["author", data.name],
                     ["title", data.title],
-                    ["description", data.desc],
+                    ["description", data.desc || data.description],
                     ["robots", data.robots],
                     ["crawlers", handleCustomCrawlers(data)],
                     ["generator", data.generator]
@@ -80,7 +80,7 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                     ["og:locale:alternate", data.og_alternate_locales],
                     ["og:locale", data.locale || "en_US"],
                     ["og:title", data.og_title || data.title],
-                    ["og:description", data.og_desc || data.desc],
+                    ["og:description", data.og_desc || data.desc || data.description],
                     ["og:image", data.img],
                     ["og:image:alt", data.img_alt],
                     ["og:image:width", data.img_width],
@@ -103,7 +103,7 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                     ["twitter:creator", `@${data.creator_handle || data.twitter_handle}`],
                     ["twitter:url", data.url],
                     ["twitter:title", data.twitter_title || data.title],
-                    ["twitter:description", data.twitter_desc || data.desc],
+                    ["twitter:description", data.twitter_desc || data.desc || data.description],
                     ["twitter:image", data.img],
                     ["twitter:image:alt", data.img_alt]
                 ].filter(tagInfo => tagInfo[1]).map(tagInfo => {
