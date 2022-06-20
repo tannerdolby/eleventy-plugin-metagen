@@ -8,6 +8,11 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                 return data.comments ? `${(data[key] ? `<!-- ${data[key]} -->` : `<!-- ${commentGroup} -->`)}` : "";
             }
 
+            function twitterHandle(handle) {
+                if (!handle) return undefined;
+                return `@${handle}`;
+            }
+
             function getDnsTags(data, rel) {
                 if (typeof data == "string") {
                     return getTag("link", null, {rel: rel, href: data});
@@ -81,12 +86,12 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                     ["og:locale", data.locale || "en_US"],
                     ["og:title", data.og_title || data.title],
                     ["og:description", data.og_desc || data.desc || data.description],
-                    ["og:image", data.img],
-                    ["og:image:alt", data.img_alt],
-                    ["og:image:width", data.img_width],
-                    ["og:image:height", data.img_height],
-                    ["og:image:type", data.og_img_type],
-                    ["og:image:secure_url", data.og_secure_img_url]
+                    ["og:image", data.img || data.image],
+                    ["og:image:alt", data.img_alt || data.image_alt],
+                    ["og:image:width", data.img_width || data.image_width],
+                    ["og:image:height", data.img_height || data.image_height],
+                    ["og:image:type", data.og_img_type || data.og_image_type],
+                    ["og:image:secure_url", data.og_secure_img_url || data.og_secure_image_url]
                 ].filter(tagInfo => tagInfo[1]).map(tagInfo => {
                     if (tagInfo[0] == "og:locale:alternate") {
                         return tagInfo[1].map(locale => {
@@ -95,17 +100,17 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                     }
                     return tagInfo[0] === "comments" ? tagInfo[1] : getTag("meta", null, { property: tagInfo[0], content: tagInfo[1] });
                 });
-                
+
                 const twitterCard = [
                     ["comments", comments(data, "twitter-comment", "Twitter")],
                     ["twitter:card", data.twitter_card_type || 'summary'],
-                    ["twitter:site", `@${data.twitter_handle}`],
-                    ["twitter:creator", `@${data.creator_handle || data.twitter_handle}`],
+                    ["twitter:site", twitterHandle(data.twitter_handle)],
+                    ["twitter:creator", twitterHandle(data.creator_handle || data.twitter_handle)],
                     ["twitter:url", data.url],
                     ["twitter:title", data.twitter_title || data.title],
                     ["twitter:description", data.twitter_desc || data.desc || data.description],
-                    ["twitter:image", data.img],
-                    ["twitter:image:alt", data.img_alt]
+                    ["twitter:image", data.img || data.image],
+                    ["twitter:image:alt", data.img_alt || data.image_alt]
                 ].filter(tagInfo => tagInfo[1]).map(tagInfo => {
                     return tagInfo[0] === "comments" ? tagInfo[1] : getTag("meta", null, { [data.attr_name || "name"]: tagInfo[0], content: tagInfo[1] });
                 });
@@ -122,7 +127,7 @@ module.exports = (eleventyConfig, pluginNamespace) => {
                 if (data.js || data.inline_js) js = getStaticAssets([["js", data.js], ["inline-js", data.inline_js]], "js").join("\n");
 
                 const tags = [...metadata, ...openGraph, ...twitterCard, canonical, customTags, css, js].filter(Boolean);
-                
+
                 return data.minified ? tags.join("").replace(/[\n|\n\t]/gm, "") : tags.join("\n\t");
             } else {
                 console.error("No data was added into the meta generator")
