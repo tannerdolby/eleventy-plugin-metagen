@@ -122,10 +122,6 @@ metadata:
 {% metagen metadata %}
 ```
 
-### Meta Tag Reference
-- [Open Graph](https://ogp.me/)
-- [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup)
-
 ## Contributing
 If you notice an issue or there is metadata that you need generated which isn't supported, feel free to [open an issue](https://github.com/tannerdolby/eleventy-plugin-metagen/issues).
 
@@ -134,3 +130,7 @@ If you notice an issue or there is metadata that you need generated which isn't 
 3. Install dependencies `npm install`
 4. Build `npm run build`
 5. Serve locally `npm run dev`
+
+## Meta Tag Reference
+- [Open Graph](https://ogp.me/)
+- [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup)
