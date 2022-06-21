@@ -127,7 +127,7 @@ metadata:
 - [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup)
 
 ## Contributing
-If you notice an issue or there is a `<meta>` tag that you need generated which isn't supported, feel free to [open an issue](https://github.com/tannerdolby/eleventy-plugin-metagen/issues).
+If you notice an issue or there is metadata that you need generated which isn't supported, feel free to [open an issue](https://github.com/tannerdolby/eleventy-plugin-metagen/issues).
 
 1. Fork this repo
 2. Clone `git clone git@github.com:tannerdolby/eleventy-plugin-metagen.git`
