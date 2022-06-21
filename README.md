@@ -1,5 +1,5 @@
 # eleventy-plugin-metagen
-An Eleventy [shortcode](https://www.11ty.dev/docs/shortcodes/) that generates document metadata containing: Open Graph, Twitter card, generic meta tags and a canonical link.
+An Eleventy [shortcode](https://www.11ty.dev/docs/shortcodes/) that generates document metadata containing: Open Graph, Twitter card, generic meta tags, CSS, JS, custom tags, and a canonical link.
 
 ## Installation
 Install the plugin from [npm](https://www.npmjs.com/package/eleventy-plugin-metagen):
@@ -36,8 +36,7 @@ The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) like t
   css=["style.css", "design.css"],
   js=["foo.js", ["bar.js", "async"]],
   inline_css="h1 { color: #f06; }",
-  inline_js="console.log('hello, world.');",
-  custom=[["meta", "", {name: "custom", content: "foo" }]]
+  inline_js="console.log('hello, world.');"
 %}
 ```
 into `<meta>` tags and other document metadata like this:
@@ -69,7 +68,6 @@ into `<meta>` tags and other document metadata like this:
 <meta name="twitter:image" content="https://tannerdolby.com/images/arch-spiral-large.jpg">
 <meta name="twitter:image:alt" content="Archimedean Spiral">
 <link rel="canonical" href="https://tannerdolby.com">
-<meta name="custom" content="foo">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="design.css">
 <style>h1 { color: #f06; }</style>
@@ -136,6 +134,3 @@ If you notice an issue or there is a `<meta>` tag that you need generated which 
 3. Install dependencies `npm install`
 4. Build `npm run build`
 5. Serve locally `npm run dev`
-
-## Other Meta tag generators
-- [eleventy-plugin-meta-generator](https://github.com/Ryuno-Ki/eleventy-plugin-meta-generator)
