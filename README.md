@@ -79,10 +79,10 @@ into `<meta>` tags and other document metadata like this:
 ## Custom Usage
 For baseline social share functionality, providing arguments shown in the example usage above is recommended. If you want to add more tags not listed in the example, have a look at the plugin docs. You might only need a few `<meta>` tags instead of the whole set, simply provide the arguments you need and the ones not included won't generate `<meta>` tags.
 
-Template variables can be used as arguments in Nunjucks and Liquid without the curly braces or quotes like `title=page.url`. See the [metagen docs](https://metagendocs.netlify.app/) for more details on plugin usage.
+Template variables can be used as arguments in Nunjucks and Liquid without the curly braces or quotes. See the [metagen docs](https://metagendocs.netlify.app/) for more details on plugin usage.
 
 ## Use Your Template Data
-To make your metadata dynamic, you can use template data as arguments to the shortcode without quotes or braces:
+To make your metadata dynamic, you can use template data as arguments to the shortcode without quotes or braces. The following example is within a Nunjucks (.njk) file:
 
 ```nunjucks
 ---
