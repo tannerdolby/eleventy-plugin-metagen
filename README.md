@@ -128,6 +128,6 @@ If you notice an issue or there is metadata that you need generated which isn't 
 4. Build `npm run build`
 5. Serve locally `npm run dev`
 
-### Meta Tag Reference
+## Meta Tag Reference
 - [Open Graph](https://ogp.me/)
 - [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup)
