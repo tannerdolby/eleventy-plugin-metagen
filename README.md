@@ -39,6 +39,7 @@ The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) like t
   inline_js="console.log('hello, world.');"
 %}
 ```
+
 into `<meta>` tags and other document metadata like this:
 
 ```html
