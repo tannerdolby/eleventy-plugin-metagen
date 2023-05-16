@@ -1,6 +1,9 @@
 # eleventy-plugin-metagen
 An Eleventy [shortcode](https://www.11ty.dev/docs/shortcodes/) that generates document metadata containing: Open Graph, Twitter card, generic meta tags, CSS, JS, canonical link, and custom tags. See [metagen docs](https://metagendocs.netlify.app/) for more details on plugin usage.
 
+- [Open Graph](https://ogp.me/)
+- [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup)
+
 ## Installation
 Install the plugin from [npm](https://www.npmjs.com/package/eleventy-plugin-metagen):
 
@@ -119,7 +122,3 @@ metadata:
 
 ## Contributing
 If you find a bug or there is metadata that you need generated which isn't supported, feel free to [open an issue](https://github.com/tannerdolby/eleventy-plugin-metagen/issues).
-
-## Meta Tag Reference
-- [Open Graph](https://ogp.me/)
-- [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup)
