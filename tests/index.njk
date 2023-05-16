@@ -12,23 +12,30 @@ metadata:
   comments: true
   site_name: Metagen
   robots: noindex
+  minified: false
   crawlers:
     googlebot: noindex
     googlebot-news: nosnippet
-  preconnect: https://foo.com
-  dns_prefetch: https://example.com
-  og_alternate_locales: ["es", "zh", "ja"]
-  css: [style.css, foo.css]
-  js: [foo.js, [bar.js, async]]
-  inline_css: "h1 {color: #f06}"
-  inline_js: "console.log('hello, world');"
-  custom:
-    - ["meta", "", {foo: bar, content: fizz}]
+  preconnect: [{url: https://fonts.googleapis.com/, crossorigin: true}, https://google.com]
+  dns_prefetch: [https://fonts.googleapis.com/, https://google.com]
+  og_alternate_locales: [es, zh, ja]
+  css: [style.css, foo.css:rel="preload":as="style"]
+  js: [foo.js, bar.js:async:type="module", fizz.js:defer]
+  inline_css: 'h1 {color: #f06}'
+  inline_js: [
+    'console.log("hello, world");',
+    {type: 'application/json', id: 'some-id', js: '{"data": "hello"}'}
+  ]
+  custom: [
+    {tag: 'meta', attrs: {name: 'foobar', content: 'fizz'}},
+    {tag: 'link', attrs: {rel: 'stylesheet', href: 'print.css', media: 'print'}},
+    {tag: 'link', attrs: {rel: 'preload', href: 'myFont.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous'}}
+  ]
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	{% metagen metadata %}
+    {% metagen metadata %}
 </head>
 <body>
     <h1>Test Fixture</h1>
