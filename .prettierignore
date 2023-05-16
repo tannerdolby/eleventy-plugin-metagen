@@ -1,0 +1,29 @@
+# Ignore artifacts
+build
+coverage
+dist
+
+# Misc
+package.json
+package-lock.json
+README.md
+LICENSE
+node_modules
+.prettierrc.json
+
+# Babel
+babel.*
+
+# 11ty
+.eleventyignore
+_site
+.github
+
+# Cypress
+cypress/downloads
+cypress/fixtures
+cypress/plugins
+cypress/screenshots
+cypress/support
+cypress/videos
+cypress.json

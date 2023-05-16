@@ -18,7 +18,8 @@
     "build": "eleventy",
     "dev": "eleventy --serve",
     "test": "npm run build && cypress run",
-    "test:ui": "npm run build && cypress open"
+    "test:ui": "npm run build && cypress open",
+    "prettify": "npx prettier --write ."
   },
   "keywords": [
     "eleventy",
@@ -26,7 +27,8 @@
     "11ty",
     "metatag",
     "metadata",
-    "meta-tag-generator"
+    "meta-tag-generator",
+    "social-share"
   ],
   "author": {
     "name": "Tanner Dolby",
@@ -34,10 +36,11 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@11ty/eleventy": "^1.0.1",
-    "get-tag": "^0.1.2"
+    "@11ty/eleventy": "^2.0.1",
+    "get-tag": "^0.1.7"
   },
   "devDependencies": {
-    "cypress": "^8.6.0"
+    "cypress": "^8.6.0",
+    "prettier": "^2.8.4"
   }
 }
