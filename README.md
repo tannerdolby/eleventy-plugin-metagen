@@ -1,5 +1,5 @@
 # eleventy-plugin-metagen
-An Eleventy [shortcode](https://www.11ty.dev/docs/shortcodes/) that generates document metadata containing: Open Graph, Twitter card, generic meta tags, CSS, JS, custom tags, and a canonical link.
+An Eleventy [shortcode](https://www.11ty.dev/docs/shortcodes/) that generates document metadata containing: Open Graph, Twitter card, generic meta tags, CSS, JS, canonical link, and custom tags. See [metagen docs](https://metagendocs.netlify.app/) for more details on plugin usage.
 
 ## Installation
 Install the plugin from [npm](https://www.npmjs.com/package/eleventy-plugin-metagen):
@@ -23,20 +23,20 @@ The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) like t
 
 ```njk
 {% metagen
-  title="Eleventy Plugin Meta Generator",
-  desc="An eleventy shortcode for generating meta tags.",
-  url="https://tannerdolby.com",
-  img="https://tannerdolby.com/images/arch-spiral-large.jpg",
-  img_alt="Archimedean Spiral",
-  twitter_card_type="summary_large_image",
-  twitter_handle="tannerdolby",
-  name="Tanner Dolby",
-  generator="eleventy",
+  title='Eleventy Plugin Meta Generator',
+  desc='An eleventy shortcode for generating meta tags.',
+  url='https://tannerdolby.com',
+  img='https://tannerdolby.com/images/arch-spiral-large.jpg',
+  img_alt='Archimedean Spiral',
+  twitter_card_type='summary_large_image',
+  twitter_handle='tannerdolby',
+  name='Tanner Dolby',
+  generator='eleventy',
   comments=true,
-  css=["style.css", "design.css"],
-  js=["foo.js", ["bar.js", "async"]],
-  inline_css="h1 { color: #f06; }",
-  inline_js="console.log('hello, world.');"
+  css=['style.css', 'design.css'],
+  js=['foo.js', 'bar.js:async'],
+  inline_css='h1 { color: #f06; }',
+  inline_js='console.log("hello, world.");'
 %}
 ```
 
@@ -48,7 +48,6 @@ into `<meta>` tags and other document metadata like this:
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Eleventy Plugin Meta Generator</title>
 <meta name="author" content="Tanner Dolby">
-<meta name="title" content="Eleventy Plugin Meta Generator">
 <meta name="description" content="An eleventy shortcode for generating meta tags.">
 <meta name="generator" content="eleventy">
 <!-- Open Graph -->
@@ -74,11 +73,11 @@ into `<meta>` tags and other document metadata like this:
 <style>h1 { color: #f06; }</style>
 <script src="foo.js"></script>
 <script src="bar.js" async></script>
-<script>console.log('hello, world');</script>
+<script>console.log("hello, world.");</script>
 ```
 
 ## Use Your Template Data
-To make your metadata dynamic, you can use template data as arguments to the shortcode without quotes or braces. The following example is within a Nunjucks (.njk) file:
+To make your metadata dynamic, you can use template data as arguments to the shortcode without quotes or braces. The following example is within a Nunjucks file:
 
 ```njk
 ---
@@ -118,16 +117,8 @@ metadata:
 {% metagen metadata %}
 ```
 
-See the [metagen docs](https://metagendocs.netlify.app/) for more details on plugin usage.
-
 ## Contributing
-If you notice an issue or there is metadata that you need generated which isn't supported, feel free to [open an issue](https://github.com/tannerdolby/eleventy-plugin-metagen/issues).
-
-1. Fork this repo
-2. Clone `git clone git@github.com:tannerdolby/eleventy-plugin-metagen.git`
-3. Install dependencies `npm install`
-4. Build `npm run build`
-5. Serve locally `npm run dev`
+If you find a bug or there is metadata that you need generated which isn't supported, feel free to [open an issue](https://github.com/tannerdolby/eleventy-plugin-metagen/issues).
 
 ## Meta Tag Reference
 - [Open Graph](https://ogp.me/)
