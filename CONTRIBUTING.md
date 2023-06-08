@@ -9,7 +9,7 @@ If you notice an issue or there is metadata that you need generated which isn't 
 
 When submitting a feature request or bugfix, feel free to use whatever branch naming you prefer as long as it associates your work with a given issue or reason for the changes.
 
-### Testing
+## Testing
 This project uses [cypress.io](https://www.cypress.io/).
 
 ```
