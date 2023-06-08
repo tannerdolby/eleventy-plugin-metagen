@@ -1,6 +1,6 @@
 {
   "name": "eleventy-plugin-metagen",
-  "version": "1.7.11",
+  "version": "1.8.0",
   "description": "An Eleventy shortcode that generates document metadata containing: Open Graph, Twitter card, generic meta tags and a canonical link.",
   "main": ".eleventy.js",
   "publishConfig": {
@@ -18,8 +18,7 @@
     "build": "eleventy",
     "dev": "eleventy --serve",
     "test": "npm run build && cypress run",
-    "test:ui": "npm run build && cypress open",
-    "prettify": "npx prettier --write ."
+    "test:ui": "npm run build && cypress open"
   },
   "keywords": [
     "eleventy",
@@ -40,7 +39,6 @@
     "get-tag": "^0.1.7"
   },
   "devDependencies": {
-    "cypress": "^8.6.0",
-    "prettier": "^2.8.4"
+    "cypress": "^8.6.0"
   }
 }
