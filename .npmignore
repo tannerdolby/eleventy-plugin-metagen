@@ -6,6 +6,6 @@ tests/
 # 11ty site output
 _site/
 
-# misc
+# Ignore
 .eleventyignore
 .gitignore
