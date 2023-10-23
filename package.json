@@ -36,7 +36,7 @@
   "license": "MIT",
   "dependencies": {
     "@11ty/eleventy": "^2.0.1",
-    "get-tag": "^0.1.7"
+    "meta-generator": "^0.1.1"
   },
   "devDependencies": {
     "cypress": "^8.6.0"
