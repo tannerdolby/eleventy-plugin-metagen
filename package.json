@@ -13,7 +13,7 @@
   "bugs": {
     "url": "https://github.com/tannerdolby/eleventy-plugin-metagen/issues/"
   },
-  "homepage": "https://metagendocs.netlify.app",
+  "homepage": "https://github.com/tannerdolby/eleventy-plugin-metagen#readme",
   "scripts": {
     "build": "eleventy",
     "dev": "eleventy --serve",
@@ -36,7 +36,7 @@
   "license": "MIT",
   "dependencies": {
     "@11ty/eleventy": "^2.0.1",
-    "meta-generator": "^0.1.1"
+    "meta-generator": "^0.1.2"
   },
   "devDependencies": {
     "cypress": "^8.6.0"
