@@ -1,5 +1,9 @@
 # eleventy-plugin-metagen
 
+[![NPM Version](https://img.shields.io/npm/v/eleventy-plugin-metagen.svg?style=flat)](https://www.npmjs.org/package/eleventy-plugin-metagen)
+[![NPM Downloads](https://img.shields.io/npm/dm/eleventy-plugin-metagen.svg?style=flat)](https://npmcharts.com/compare/eleventy-plugin-metagen?minimal=true)
+[![Install Size](https://packagephobia.now.sh/badge?p=eleventy-plugin-metagen)](https://packagephobia.com/result?p=eleventy-plugin-metagen)
+
 An Eleventy [shortcode](https://www.11ty.dev/docs/shortcodes/) that generates document metadata containing: Open Graph, Twitter card, generic meta tags, CSS, JS, canonical link, and custom tags. See [metagen docs](https://metagendocs.netlify.app/docs/intro) for more details on plugin usage.
 
 ## Installation
