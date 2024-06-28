@@ -24,7 +24,7 @@ module.exports = (eleventyConfig) => {
 ```
 
 ## What does it do?
-The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) in a Nunjucks template like this:
+The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) in a Nunjucks template:
 
 ```njk
 {% metagen
@@ -45,7 +45,7 @@ The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) in a N
 %}
 ```
 
-into `<meta>` tags and other document metadata like this:
+into `<meta>` tags and other document metadata:
 
 ```html
 <meta charset="utf-8">
