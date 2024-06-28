@@ -24,7 +24,7 @@ module.exports = (eleventyConfig) => {
 ```
 
 ## What does it do?
-The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) like this:
+The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) in a Nunjucks template like this:
 
 ```njk
 {% metagen
@@ -82,7 +82,7 @@ into `<meta>` tags and other document metadata like this:
 ```
 
 ## Use Your Template Data
-To make your metadata dynamic, you can use template data as arguments to the shortcode without quotes or braces. The following example is within a Nunjucks file:
+To make your metadata dynamic, you can use template data as arguments to the shortcode without quotes or braces in a Nunjucks template.
 
 ```njk
 ---
@@ -117,7 +117,6 @@ Shorthand syntax:
 metadata:
   title: foo bar
   desc: some desc
-  ...
 ---
 {% metagen metadata %}
 ```
