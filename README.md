@@ -16,12 +16,26 @@ npm install eleventy-plugin-metagen
 Add it to your [Eleventy Config](https://www.11ty.dev/docs/config/) file:
 
 ```js
+import metagen from 'eleventy-plugin-metagen';
+
+export default async function(eleventyConfig) {
+    eleventyConfig.addPlugin(metagen);
+};
+```
+
+<details><summary>CommonJS Usage</summary>
+
+```js
 const metagen = require('eleventy-plugin-metagen');
 
 module.exports = (eleventyConfig) => {
     eleventyConfig.addPlugin(metagen);
 };
 ```
+
+</details>
+
+
 
 ## What does it do?
 The plugin turns [11ty shortcodes](https://www.11ty.dev/docs/shortcodes/) in a Nunjucks template:
