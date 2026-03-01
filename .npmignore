@@ -9,3 +9,7 @@ _site/
 # Ignore
 .eleventyignore
 .gitignore
+
+# GitHub
+CONTRIBUTING.md
+FUNDING.yml
