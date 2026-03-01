@@ -1,6 +1,6 @@
 {
   "name": "eleventy-plugin-metagen",
-  "version": "1.8.3",
+  "version": "1.8.4",
   "description": "An Eleventy shortcode that generates document metadata containing: Open Graph, Twitter card, generic meta tags and a canonical link.",
   "main": ".eleventy.js",
   "publishConfig": {
@@ -35,7 +35,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy": "^3.1.2",
     "meta-generator": "^0.1.5"
   },
   "devDependencies": {
