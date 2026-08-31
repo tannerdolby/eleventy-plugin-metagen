@@ -40,5 +40,8 @@
   },
   "devDependencies": {
     "cypress": "^8.6.0"
+  },
+  "overrides": {
+    "liquidjs": "10.27.1"
   }
 }
