@@ -9,7 +9,3 @@ node_modules
 
 # DS Store
 .DS_STORE
-
-# GitHub
-CONTRIBUTING.md
-FUNDING.yml
