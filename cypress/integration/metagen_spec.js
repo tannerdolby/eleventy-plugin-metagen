@@ -11,7 +11,7 @@ describe('create document metadata', () => {
     const map = {
       charset: 'utf-8',
       'http-equiv': 'IE=edge',
-      viewport: 'width=device-width, initial-scale=1',
+      viewport: 'width=device-width,initial-scale=1,viewport-fit=cover',
       author: 'Tanner Dolby',
       title: 'Eleventy Plugin Meta Generator',
       description: 'An eleventy shortcode for generating meta tags.',
